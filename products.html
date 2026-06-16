@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | The Bell Match Company</title>
+    <meta name="description" content="Browse the complete range of Bell Match products ? pocket box matches, kitchen matches, barbeque matches, cigar matches, matchbooks, and special shape matches.">
+    <meta name="keywords" content="safety matches, pocket box matches, kitchen matches, barbeque matches, cigar matches, matchbooks, Sivakasi">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =============================================
+           PRODUCTS PAGE STYLES
+        ============================================= */
+        .page-banner {
+            background: var(--color-bg-dark);
+            padding: 200px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(218, 37, 29, 0.12) 0%, transparent 65%);
+        }
+        .page-banner .container { position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+        .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: var(--color-red); }
+        .breadcrumb span { color: var(--color-red); }
+        .breadcrumb-sep { color: rgba(255,255,255,0.3); }
+        .page-banner h1 { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px; }
+        .page-banner h1 span { color: var(--color-red); }
+        .page-banner p { font-size: 1.1rem; color: rgba(255,255,255,0.65); max-width: 600px; line-height: 1.7; }
+
+        /* Product Filter Tabs */
+        .product-filter {
+            padding: 50px 0 0;
+            background: #fff;
+        }
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-bottom: 10px;
+        }
+        .filter-tab {
+            padding: 10px 22px;
+            border-radius: 30px;
+            border: 1px solid rgba(0,0,0,0.12);
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .filter-tab:hover, .filter-tab.active {
+            background: var(--color-red);
+            border-color: var(--color-red);
+            color: #fff;
+        }
+
+        /* Products Listing */
+        .products-listing {
+            padding: 60px 0 100px;
+            background: #fff;
+        }
+
+        /* Safety Matches Category */
+        .product-category {
+            margin-bottom: 80px;
+        }
+        .category-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .category-header .subtitle {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 8px;
+        }
+        .category-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 800;
+            color: var(--color-black);
+        }
+        .category-header h2 span { color: var(--color-red); }
+        .category-count {
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .product-item-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.07);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .product-item-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 56px rgba(218,37,29,0.12);
+        }
+        .product-img-zone {
+            background: linear-gradient(135deg, #f4f6fa 0%, #e8ecf5 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-img-zone::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(218,37,29,0.06) 0%, transparent 65%);
+        }
+        .product-img-zone svg {
+            width: 44px;
+            height: 44px;
+            fill: rgba(218,37,29,0.3);
+        }
+        .product-img-zone span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(2,14,39,0.3);
+        }
+        .product-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--color-red);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .product-body {
+            padding: 24px;
+        }
+        .product-body h3 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 8px;
+        }
+        .product-body p {
+            font-size: 0.88rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .product-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+        .product-spec-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .product-spec-row:last-child { border-bottom: none; }
+        .spec-key { color: var(--color-text-light); font-weight: 500; }
+        .spec-val { color: var(--color-black); font-weight: 600; }
+        .product-enquiry-btn {
+            display: block;
+            width: 100%;
+            padding: 11px 0;
+            text-align: center;
+            background: transparent;
+            border: 1.5px solid var(--color-red);
+            border-radius: 8px;
+            color: var(--color-red);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .product-enquiry-btn:hover {
+            background: var(--color-red);
+            color: #fff;
+        }
+
+        /* Custom Matches CTA Banner */
+        .custom-match-banner {
+            padding: 90px 0;
+            background: var(--color-bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        .custom-match-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(218,37,29,0.12) 0%, transparent 65%);
+        }
+        .custom-banner-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .custom-banner-inner .subtitle {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 12px;
+        }
+        .custom-banner-inner h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .custom-banner-inner h2 span { color: var(--color-red); }
+        .custom-banner-inner p { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 600px; line-height: 1.7; }
+        .custom-banner-actions { display: flex; flex-direction: column; gap: 14px; }
+
+        .reveal-up { opacity: 0; transform: translateY(30px); }
+
+        @media (max-width: 1024px) {
+            .products-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .products-grid { grid-template-columns: 1fr; }
+            .category-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .custom-banner-inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Cinematic Preloader (Mandatory) -->
+    <div id="preloader" role="dialog" aria-modal="true" aria-label="Loading Website">
+        <canvas class="preloader-canvas" id="preloader-canvas"></canvas>
+        <div class="preloader-content">
+            <div class="preloader-stick-container">
+                <div class="preloader-striker"></div>
+                <div class="preloader-matchstick" id="preloader-stick"></div>
+            </div>
+            <h1 class="preloader-logo" id="preloader-logo">BELL <span>MATCH CO.</span></h1>
+            <div class="preloader-subtitle" id="preloader-subtitle">Loading Products...</div>
+            <div class="preloader-progress-wrap">
+                <div class="preloader-progress-bar" id="preloader-progress"></div>
+                <div class="progress-flame" id="progress-flame">
+                    <!-- Dynamic Spark / Fire Glow -->
+                </div>
+            </div>
+            <div class="preloader-percentage" id="preloader-percent">0%</div>
+        </div>
+    </div>
+
+    <canvas id="spark-canvas"></canvas>
+
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container top-contact-grid">
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>+91 78459 65010 (10 AM - 5 PM)</span>
+            </div>
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:sales@bellmatch.com">sales@bellmatch.com</a>
+            </div>
+            <div class="social-quick-links">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html#hero" class="logo" aria-label="The Bell Match Company Home">
+            <span class="logo-bell">BELL</span><span class="logo-match">MATCH</span>
+        </a>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html#hero">Home</a>
+            <div class="nav-dropdown-trigger">
+                <a href="about-us.html" class="dropdown-toggle">About Us <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="about-us.html">Profile</a>
+                    <a href="infrastructure.html">Infrastructure</a>
+                    <a href="certificates.html">Certificates</a>
+                    <a href="policies.html">Policies</a>
+                </div>
+            </div>
+            <div class="nav-dropdown-trigger">
+                <a href="products.html" class="dropdown-toggle active">Products <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="pocket-box-match.html">Pocket Box Matches</a>
+                    <a href="kitchen-box-match.html">Kitchen Box Matches</a>
+                    <a href="barbeque-box-match.html">Barbeque Box Matches</a>
+                    <a href="book-match.html">Match Books</a>
+                    <a href="cigar-match.html">Cigar Match Boxes</a>
+                    <a href="special-shape-match-boxes.html">Special Shape Match Boxes</a>
+                </div>
+            </div>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact-us.html" class="nav-cta">Contact Us</a>
+        </nav>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-sep">?</span>
+                    <span>Products</span>
+                </div>
+                <h1>Our Product <span>Range</span></h1>
+                <p>From everyday pocket matches to premium cigar matchboxes and bespoke matchbooks - a complete portfolio crafted to EN 1783 standards.</p>
+            </div>
+        </section>
+
+        <!-- Filter Tabs -->
+        <div class="product-filter">
+            <div class="container">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="scrollToSection('safety')">Safety Matches</button>
+                    <button class="filter-tab" onclick="scrollToSection('advertising')">Advertising Matches</button>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Listing -->
+        <section class="products-listing" id="safety">
+            <div class="container">
+
+                <!-- Safety Matches Category -->
+                <div class="product-category" id="pocket">
+                    <div class="category-header">
+                        <div>
+                            <span class="subtitle">Category 01</span>
+                            <h2>Safety <span>Matches</span></h2>
+                        </div>
+                        <span class="category-count">5 Products</span>
+                    </div>
+                    <div class="products-grid">
+
+                        <!-- Pocket Box Matches -->
+                        <div class="product-item-card reveal-up">
+                            <div class="product-img-zone">
+                                <svg viewBox="0 0 24 24"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2z"/></svg>
+                                <span>Product Image</span>
+                                <span class="product-badge">Best Seller</span>
+                            </div>
+                            <div class="product-body">
+                                <h3>Pocket Box Matches</h3>
+                                <p>Durable, high-quality pocket matches manufactured to EN 1783 safety standards. Perfect for everyday household and retail use.</p>
+                                <div class="product-specs">
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Wood Type</span>
+                                        <span class="spec-val">White Aspen / Poplar</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Box Dimensions</span>
+                                        <span class="spec-val"> 48 x 35 x 12 mm</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Avg Contents</span>
+                                        <span class="spec-val">40 sticks per box</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Standard</span>
+                                        <span class="spec-val">EN 1783 Certified</span>
+                                    </div>
+                                </div>
+                                <a href="pocket-box-match.html" class="product-enquiry-btn">View Product</a>
+                            </div>
+                        </div>
+
+                        <!-- Kitchen Box Matches -->
+                        <div class="product-item-card reveal-up" id="kitchen">
+                            <div class="product-img-zone">
+                                <svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z"/></svg>
+                                <span>Product Image</span>
+                            </div>
+                            <div class="product-body">
+                                <h3>Kitchen Box Matches</h3>
+                                <p>Longer wood stems for safe stove, grill, and deep burner ignition. Chemically carbonized for zero afterglow ? kitchen safe.</p>
+                                <div class="product-specs">
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Wood Type</span>
+                                        <span class="spec-val">Aspar (Grade A)</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Box Dimensions</span>
+                                        <span class="spec-val"> 72 x 50 x 18 mm</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Avg Contents</span>
+                                        <span class="spec-val">45 sticks per box</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Striker Strip</span>
+                                        <span class="spec-val">All-weather phosphorus</span>
+                                    </div>
+                                </div>
+                                <a href="kitchen-box-match.html" class="product-enquiry-btn">View Product</a>
+                            </div>
+                        </div>
+
+                        <!-- Barbeque Box Matches -->
+                        <div class="product-item-card reveal-up" id="barbeque">
+                            <div class="product-img-zone">
+                                <svg viewBox="0 0 24 24"><path d="M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"/></svg>
+                                <span>Product Image</span>
+                            </div>
+                            <div class="product-body">
+                                <h3>Barbeque Box Matches</h3>
+                                <p>Extra-long matches designed specifically for lighting barbeques, fire pits, and outdoor chimineas safely at a comfortable arm's reach.</p>
+                                <div class="product-specs">
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Splint Length</span>
+                                        <span class="spec-val">200 ? 250 mm</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Wood Type</span>
+                                        <span class="spec-val">Grade A Pine / Aspar</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Avg Contents</span>
+                                        <span class="spec-val">25 sticks per box</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Standard</span>
+                                        <span class="spec-val">EN 1783 Certified</span>
+                                    </div>
+                                </div>
+                                <a href="barbeque-box-match.html" class="product-enquiry-btn">View Product</a>
+                            </div>
+                        </div>
+
+                        <!-- Box Matches -->
+                        <div class="product-item-card reveal-up" id="box">
+                            <div class="product-img-zone">
+                                <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.33C18 2.99 16.03 1 13.67 1c-1.32 0-2.4.62-3.09 1.56L9 4.5l-1.58-1.94C6.73 1.62 5.65 1 4.33 1 1.97 1 0 2.99 0 5.34 0 7.41 1.29 9.2 3.09 10H2c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2z"/></svg>
+                                <span>Product Image</span>
+                            </div>
+                            <div class="product-body">
+                                <h3>Box Matches</h3>
+                                <p>Standard utility matchboxes for industrial, hotel, and bulk retail supply. Available in a wide range of sizes and stick counts.</p>
+                                <div class="product-specs">
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Wood Type</span>
+                                        <span class="spec-val">White Aspen</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Stick Count</span>
+                                        <span class="spec-val">Customizable (30?100)</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Label</span>
+                                        <span class="spec-val">Custom / Private Label</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Standard</span>
+                                        <span class="spec-val">EN 1783 Certified</span>
+                                    </div>
+                                </div>
+                                <a href="contact-us.html" class="product-enquiry-btn">Send Enquiry</a>
+                            </div>
+                        </div>
+
+                        <!-- Special Shape Matches -->
+                        <div class="product-item-card reveal-up" id="special">
+                            <div class="product-img-zone">
+                                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+                                <span>Product Image</span>
+                            </div>
+                            <div class="product-body">
+                                <h3>Special Shape Match Boxes</h3>
+                                <p>Novelty and special shape matchboxes including heart, hexagon, and custom die-cut shapes ? perfect for premium gifting and promotions.</p>
+                                <div class="product-specs">
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Shapes</span>
+                                        <span class="spec-val">Heart, Hex, Custom</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Min Order</span>
+                                        <span class="spec-val">5,000 boxes</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Print Finish</span>
+                                        <span class="spec-val">4-color offset / Foil</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Standard</span>
+                                        <span class="spec-val">EN 1783 Certified</span>
+                                    </div>
+                                </div>
+                                <a href="special-shape-match-boxes.html" class="product-enquiry-btn">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advertising Matches Category -->
+                <div class="product-category" id="advertising">
+                    <div class="category-header">
+                        <div>
+                            <span class="subtitle">Category 02</span>
+                            <h2>Advertising & <span>Promotional Matches</span></h2>
+                        </div>
+                        <span class="category-count">2 Products</span>
+                    </div>
+                    <div class="products-grid">
+
+                        <!-- Match Books -->
+                        <div class="product-item-card reveal-up" id="matchbooks">
+                            <div class="product-img-zone">
+                                <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+                                <span>Product Image</span>
+                                <span class="product-badge">Custom Print</span>
+                            </div>
+                            <div class="product-body">
+                                <h3>Match Books</h3>
+                                <p>Premium printed book matches for hotels, lounges, restaurants, and corporate promotional campaigns. Fully customizable artwork.</p>
+                                <div class="product-specs">
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Sticks per Book</span>
+                                        <span class="spec-val">20 / 30 matchsticks</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Min Order</span>
+                                        <span class="spec-val">10,000 books</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Print Options</span>
+                                        <span class="spec-val">4-color, gold foil, emboss</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Delivery</span>
+                                        <span class="spec-val">28 ? 45 days from artwork</span>
+                                    </div>
+                                </div>
+                                <a href="book-match.html" class="product-enquiry-btn">View Product</a>
+                            </div>
+                        </div>
+
+                        <!-- Cigar Match Boxes -->
+                        <div class="product-item-card reveal-up" id="cigar">
+                            <div class="product-img-zone">
+                                <svg viewBox="0 0 24 24"><path d="M21 6.5l-1.5-1.5-8.5 8.5-4-4L5.5 11l6 6z"/></svg>
+                                <span>Product Image</span>
+                                <span class="product-badge">Premium</span>
+                            </div>
+                            <div class="product-body">
+                                <h3>Cigar Match Boxes</h3>
+                                <p>Long, sulfur-free matches for premium cigar lounges and aficionados. Custom tip color options ? a refined experience for discerning customers.</p>
+                                <div class="product-specs">
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Splint Length</span>
+                                        <span class="spec-val">100 ? 170 mm</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Tip Colors</span>
+                                        <span class="spec-val">12 color options</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Box Finish</span>
+                                        <span class="spec-val">Gold foil / Embossed</span>
+                                    </div>
+                                    <div class="product-spec-row">
+                                        <span class="spec-key">Min Order</span>
+                                        <span class="spec-val">10,000 boxes</span>
+                                    </div>
+                                </div>
+                                <a href="cigar-match.html" class="product-enquiry-btn">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Custom Matches Banner -->
+        <section class="custom-match-banner">
+            <div class="container">
+                <div class="custom-banner-inner">
+                    <div>
+                        <span class="subtitle">Bespoke Solutions</span>
+                        <h2>Need <span>Custom Branded</span> Matches?</h2>
+                        <p>We specialize in high-personalization matchbox manufacturing. Share your artwork or requirements and our team will create a tailored solution ? from tip color to box shape, packaging finish to custom labels.</p>
+                    </div>
+                    <div class="custom-banner-actions">
+                        <a href="contact-us.html" class="btn btn-primary"><span>Request Custom Quote</span></a>
+                        <a href="about-us.html" class="btn btn-secondary">Learn About Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h4><span class="logo-bell" style="color: var(--color-red);">BELL</span><span class="logo-match" style="color: #fff;">MATCH</span></h4>
+                    <p>The Bell Match Company is an admired organization of professionals renowned for exceptional customer service and an impeccable safety and compliance record.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="pocket-box-match.html">Pocket Box Matches</a></li>
+                        <li><a href="kitchen-box-match.html">Kitchen Box Matches</a></li>
+                        <li><a href="barbeque-box-match.html">Barbeque Box Matches</a></li>
+                        <li><a href="book-match.html">Match Books</a></li>
+                        <li><a href="cigar-match.html">Cigar Match Boxes</a></li>
+                        <li><a href="special-shape-match-boxes.html">Special Shape Matches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about-us.html">About Our Profile</a></li>
+                        <li><a href="infrastructure.html">Factory Infrastructure</a></li>
+                        <li><a href="certificates.html">Certifications</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                        <li><a href="gallery.html">Industrial Gallery</a></li>
+                        <li><a href="contact-us.html">Contact & Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to receive industrial updates, batch releases, and company notifications.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="return false;">
+                        <input type="email" class="newsletter-input" placeholder="Your Email" required>
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #fff;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 bellmatch - All Rights Reserved. &nbsp;|&nbsp; Web Design: NIKITHA</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <script src="layout/layout.js"></script>`r`n    <script src="app.js"></script>
+    <script>
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.reveal-up').forEach((el, i) => {
+                    gsap.fromTo(el, { opacity: 0, y: 40 }, {
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                        delay: (i % 3) * 0.1,
+                        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

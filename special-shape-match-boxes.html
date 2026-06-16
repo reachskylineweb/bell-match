@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Shape Match Boxes | The Bell Match Company</title>
+    <meta name="description" content="Custom special shape match boxes by The Bell Match Company. Triangular, hexagonal, and custom branded promotional matchboxes designed to your exact specs.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Cinematic Preloader (Mandatory) -->
+    <div id="preloader" role="dialog" aria-modal="true" aria-label="Loading Website">
+        <canvas class="preloader-canvas" id="preloader-canvas"></canvas>
+        <div class="preloader-content">
+            <div class="preloader-stick-container">
+                <div class="preloader-striker"></div>
+                <div class="preloader-matchstick" id="preloader-stick"></div>
+            </div>
+            <h1 class="preloader-logo" id="preloader-logo">BELL <span>MATCH CO.</span></h1>
+            <div class="preloader-subtitle" id="preloader-subtitle">Loading Custom Shapes...</div>
+            <div class="preloader-progress-wrap">
+                <div class="preloader-progress-bar" id="preloader-progress"></div>
+                <div class="progress-flame" id="progress-flame"></div>
+            </div>
+            <div class="preloader-percentage" id="preloader-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- Background Particle Canvas (Sparks) -->
+    <canvas id="spark-canvas"></canvas>
+
+    <!-- Top Info Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container top-contact-grid">
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>+91 78459 65010 (10 AM - 5 PM)</span>
+            </div>
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:sales@bellmatch.com">sales@bellmatch.com</a>
+            </div>
+            <div class="social-quick-links">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <a href="index.html#hero" class="logo" aria-label="The Bell Match Company Home">
+            <span class="logo-bell">BELL</span><span class="logo-match">MATCH</span>
+        </a>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html#hero">Home</a>
+            <div class="nav-dropdown-trigger">
+                <a href="about-us.html" class="dropdown-toggle">About Us <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="about-us.html">Profile</a>
+                    <a href="infrastructure.html">Infrastructure</a>
+                    <a href="certificates.html">Certificates</a>
+                    <a href="policies.html">Policies</a>
+                </div>
+            </div>
+            <div class="nav-dropdown-trigger">
+                <a href="products.html" class="dropdown-toggle active">Products <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="pocket-box-match.html">Pocket Box Matches</a>
+                    <a href="kitchen-box-match.html">Kitchen Box Matches</a>
+                    <a href="barbeque-box-match.html">Barbeque Box Matches</a>
+                    <a href="book-match.html">Match Books</a>
+                    <a href="cigar-match.html">Cigar Match Boxes</a>
+                    <a href="special-shape-match-boxes.html">Special Shape Match Boxes</a>
+                </div>
+            </div>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact-us.html" class="nav-cta">Contact Us</a>
+        </nav>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+
+    <main class="product-viewport-page">
+        <div class="container">
+
+            <!-- Split Hero Section: Left = Content, Right = Matchbox -->
+            <div class="product-hero-split">
+                <!-- LEFT: Product Info & CTA -->
+                <div class="product-hero-left">
+                    <p class="product-hero-subtitle">Custom &amp; Promotional Matchboxes</p>
+                    <h1 class="product-hero-title">Special Shape<br>Match Boxes</h1>
+                    <p class="product-hero-desc">Bespoke triangular, hexagonal, octagonal, or custom-dimensioned sliding matchboxes. Perfect for luxury hotels, promotional gifting, and retail boutique brands.</p>
+                    <div class="product-hero-specs">
+                        <div class="product-hero-spec-badge">SHAPE OPTIONS<strong>Triangular / Hexagonal</strong></div>
+                        <div class="product-hero-spec-badge">BOX DIMENSIONS<strong>Custom / Tailored</strong></div>
+                        <div class="product-hero-spec-badge">AVG CONTENT<strong>Varies by Design</strong></div>
+                        <div class="product-hero-spec-badge">QUALITY<strong>Premium Grade</strong></div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="contact-us.html?product=special" class="btn btn-primary"><span>Submit Enquiry</span></a>
+                        <a href="products.html" class="btn btn-secondary">View All Products</a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: 3D Matchbox Visualizer -->
+                <div class="product-hero-right">
+                    <div class="hero-visual" id="hero-visual">
+                        <canvas class="hero-canvas" id="hero-canvas"></canvas>
+                        
+                        <div class="matchbox-3d-wrapper vertical-box" id="hero-matchbox">
+                            <div class="matchbox-3d">
+                                <!-- Outer Sleeve (6 Faces) -->
+                                <div class="face sleeve-face sleeve-front" style="background: #fff8f2">
+                                    <div class="sleeve-label-border" style="border-color: #8b5a2b; background: radial-gradient(circle, #fffdf8, #faf2eb)">
+                                        <div class="sleeve-label-logo">
+                                            <svg viewBox="0 0 24 24" style="fill: #8b5a2b">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="sleeve-label-title" style="color: #8b5a2b">BELL</div>
+                                        <div class="sleeve-label-subtitle" style="color: var(--color-text-light)">SPECIAL GEOMETRIC SHAPES</div>
+                                        <div class="sleeve-label-bottom-text" style="color: #8b5a2b; border-color: #8b5a2b">PROMOTIONAL &#x2022; TAILORED</div>
+                                    </div>
+                                </div>
+                                <div class="face sleeve-face sleeve-back"></div>
+                                <div class="face sleeve-face sleeve-top"></div>
+                                <div class="face sleeve-face sleeve-bottom"></div>
+                                <div class="face sleeve-face sleeve-left"></div>
+                                <div class="face sleeve-face sleeve-right"></div>
+                                
+                                <!-- Inner Drawer -->
+                                <div class="drawer-3d" id="matchbox-drawer">
+                                    <div class="face drawer-face drawer-bottom"></div>
+                                    <div class="face drawer-face drawer-front"></div>
+                                    <div class="face drawer-face drawer-back"></div>
+                                    <div class="face drawer-face drawer-left"></div>
+                                    <div class="face drawer-face drawer-right"></div>
+                                    <div class="drawer-matches">
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="interactive-matchstick" id="hero-matchstick"></div>
+                                        <div class="interactive-matchstick" id="hero-matchstick-2" style="left: 44px; z-index: 9;"></div>
+                                        <div class="interactive-matchstick" id="hero-matchstick-3" style="left: 56px; z-index: 9;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-shadow-reflection" id="hero-shadow"></div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+            <!-- Portfolio Carousel Section -->
+            <section style="width: 100%; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 50px;">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <span class="subtitle">Product Portfolio</span>
+                    <h2 class="section-title" style="font-size: 1.8rem;">Special Shape <span>Portfolio</span></h2>
+                </div>
+                
+                <div class="carousel-section-wrap" style="padding: 0;">
+                    <div class="carousel-container-3d" id="product-carousel">
+                        <div class="carousel-track-3d" id="carousel-track">
+                            
+                            <!-- Card 1: SS-2 -->
+                            <div class="product-card-3d" data-index="0">
+                                <div class="box-3d">
+                                    <div class="box-face box-front product-label label-luxury">
+                                        <div class="label-brand">BELL MATCH</div>
+                                        <div class="label-logo">
+                                            <svg viewBox="0 0 24 24" style="fill: var(--color-gold);">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="label-title">MODEL SS-2</div>
+                                            <div class="label-subtitle">RECTANGLE PREMIUM</div>
+                                            <div class="label-description">Elegant slim-profile matchboxes. Offers unique width-to-height styling.</div>
+                                        </div>
+                                        <div class="label-spec">30 Sticks | 55 x 35 x 15 mm</div>
+                                    </div>
+                                    <div class="box-face box-back"></div>
+                                    <div class="box-face box-top"></div>
+                                    <div class="box-face box-bottom"></div>
+                                    <div class="box-face box-left"></div>
+                                    <div class="box-face box-right"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2: SS-3 -->
+                            <div class="product-card-3d" data-index="1">
+                                <div class="box-3d">
+                                    <div class="box-face box-front product-label label-custom">
+                                        <div class="label-brand">BELL MATCH</div>
+                                        <div class="label-logo">
+                                            <svg viewBox="0 0 24 24" style="fill: var(--color-red);">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="label-title">MODEL SS-3</div>
+                                            <div class="label-subtitle">CIRCULAR MATCHBOX</div>
+                                            <div class="label-description">Exclusive cylindrical/round box matches. Stunning aesthetic for branding.</div>
+                                        </div>
+                                        <div class="label-spec">25 Sticks | Ø 60 x 25 mm</div>
+                                    </div>
+                                    <div class="box-face box-back"></div>
+                                    <div class="box-face box-top"></div>
+                                    <div class="box-face box-bottom"></div>
+                                    <div class="box-face box-left"></div>
+                                    <div class="box-face box-right"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-controls" style="margin-top: 10px;">
+                        <button class="carousel-btn" id="carousel-prev" aria-label="Previous Variant">
+                            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                        </button>
+                        <button class="carousel-btn" id="carousel-next" aria-label="Next Variant">
+                            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- Portfolio Details Output -->
+                    <div class="product-details-display" style="margin-top: 30px;">
+                        <div class="details-content active">
+                            <h3 class="details-title">Product Variant: Model SS-2</h3>
+                            <p class="details-desc">Compact rectangle promotional matchbox with premium height-to-width ratio. Ideal for luxury bars, candle branding, and hotels.</p>
+                            <div class="details-specs">
+                                <div class="details-spec-item">Box Size: <strong>55 x 35 x 15 mm</strong></div>
+                                <div class="details-spec-item">Sticks: <strong>30 Sticks</strong></div>
+                                <div class="details-spec-item">Wood Type: <strong>White Aspen</strong></div>
+                                <div class="details-spec-item">Packing: <strong>Carton Boxes</strong></div>
+                            </div>
+                        </div>
+                        <div class="details-content">
+                            <h3 class="details-title">Product Variant: Model SS-3</h3>
+                            <p class="details-desc">A premium cylindrical circular box safety match. Stands out immediately on retail shelves or tables. Ideal for custom hospitality and gifting.</p>
+                            <div class="details-specs">
+                                <div class="details-spec-item">Box Size: <strong>Ø 60 x 25 mm</strong></div>
+                                <div class="details-spec-item">Sticks: <strong>25 Sticks</strong></div>
+                                <div class="details-spec-item">Wood Type: <strong>White Aspen</strong></div>
+                                <div class="details-spec-item">Packing: <strong>Carton Boxes</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- Quick Contact Section -->
+            <section class="product-quick-contact">
+                <div class="contact-grid-3col">
+                    <div class="contact-box-item">
+                        <div class="contact-box-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="contact-box-info">
+                            <h4>Call Us Now (10am-5pm)</h4>
+                            <p><a href="tel:+917845965010">+91 78459 65010</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-box-item">
+                        <div class="contact-box-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact-box-info">
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:sales@bellmatch.com">sales@bellmatch.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-box-item">
+                        <div class="contact-box-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="contact-box-info">
+                            <h4>Location</h4>
+                            <p>2/180, T.Managaseri, Malli (via)<br>Srivilliputhur, Virudunagar (Dist)<br>Pin: 626141 India.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>BELL MATCH CO.</h4>
+                    <p>Admired safety match manufacturer and global exporter, pioneering sustainable, high-compliance safety matches and custom book matches since 1997.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="pocket-box-match.html">Pocket Box Matches</a></li>
+                        <li><a href="kitchen-box-match.html">Kitchen Box Matches</a></li>
+                        <li><a href="barbeque-box-match.html">Barbeque Box Matches</a></li>
+                        <li><a href="book-match.html">Match Books</a></li>
+                        <li><a href="cigar-match.html">Cigar Match Boxes</a></li>
+                        <li><a href="special-shape-match-boxes.html">Special Shape Matches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about-us.html">About Our Profile</a></li>
+                        <li><a href="infrastructure.html">Factory Infrastructure</a></li>
+                        <li><a href="certificates.html">Certifications</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                        <li><a href="gallery.html">Industrial Gallery</a></li>
+                        <li><a href="contact-us.html">Contact & Enquiry</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 bellmatch - All Rights Reserved. &nbsp;|&nbsp; Web Design: NIKITHA</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <script src="layout/layout.js"></script>`r`n    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile | The Bell Match Company</title>
+    <meta name="description" content="Discover The Bell Match Company's legacy since 1997 — an admired manufacturer of premium safety matches in Sivakasi, India, with an impeccable safety and compliance record.">
+    <meta name="keywords" content="Bell Match Company, Sivakasi matches, safety match manufacturer, EN 1783, FSC certified, company profile">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =============================================
+           ABOUT US PAGE SPECIFIC STYLES
+        ============================================= */
+
+        /* Page Banner Hero */
+        .page-banner {
+            background: var(--color-bg-dark);
+            padding: 200px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(218, 37, 29, 0.12) 0%, transparent 65%);
+        }
+        .page-banner .container {
+            position: relative;
+            z-index: 1;
+        }
+        .page-banner .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .page-banner .breadcrumb a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .page-banner .breadcrumb a:hover { color: var(--color-red); }
+        .page-banner .breadcrumb span { color: var(--color-red); }
+        .page-banner .breadcrumb-sep { color: rgba(255,255,255,0.3); }
+        .page-banner h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .page-banner h1 span { color: var(--color-red); }
+        .page-banner p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .page-banner-deco {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px solid rgba(218, 37, 29, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page-banner-deco::before {
+            content: '';
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            border: 1px solid rgba(218, 37, 29, 0.15);
+            position: absolute;
+        }
+        .page-banner-deco::after {
+            content: 'BELL MATCH';
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: rgba(255,255,255,0.15);
+        }
+
+        /* Company Story */
+        .company-story {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .story-img-stack {
+            position: relative;
+            height: 520px;
+        }
+        .story-img-main {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 78%;
+            height: 380px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8edf5 0%, #d0dae8 100%);
+        }
+        .story-img-secondary {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 55%;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0e8e8 0%, #e0d0d0 100%);
+            border: 5px solid #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .img-placeholder-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: rgba(2, 14, 39, 0.35);
+        }
+        .img-placeholder-content svg {
+            width: 40px;
+            height: 40px;
+            fill: currentColor;
+            opacity: 0.5;
+        }
+        .img-placeholder-content span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .story-badge {
+            position: absolute;
+            bottom: 60px;
+            right: 0;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: var(--color-red);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(218, 37, 29, 0.4);
+            z-index: 10;
+        }
+        .story-badge strong {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .story-badge span {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+        .story-content .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 14px;
+        }
+        .story-content h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            color: var(--color-black);
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        .story-content h2 span { color: var(--color-red); }
+        .story-content p {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .story-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .highlight-box {
+            background: #f8f9fb;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 3px solid var(--color-red);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .highlight-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        .highlight-box h4 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 6px;
+        }
+        .highlight-box p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* Why Bell Match */
+        .why-bell {
+            padding: 100px 0;
+            background: #f8f9fb;
+        }
+        .section-header-left .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 14px;
+        }
+        .section-header-left h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            color: var(--color-black);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .section-header-left h2 span { color: var(--color-red); }
+        .section-header-left p {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            max-width: 680px;
+            margin-bottom: 50px;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .why-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 36px 28px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(218, 37, 29, 0.1);
+            border-color: rgba(218, 37, 29, 0.2);
+        }
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--color-red);
+            transition: height 0.4s ease;
+        }
+        .why-card:hover::before { height: 100%; }
+        .why-card-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(218, 37, 29, 0.08);
+            line-height: 1;
+            margin-bottom: 16px;
+            transition: color 0.3s;
+        }
+        .why-card:hover .why-card-num { color: rgba(218, 37, 29, 0.15); }
+        .why-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: rgba(218, 37, 29, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            transition: background 0.3s;
+        }
+        .why-card:hover .why-card-icon { background: rgba(218, 37, 29, 0.15); }
+        .why-card-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--color-red);
+        }
+        .why-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 10px;
+        }
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* Certifications */
+        .certifications {
+            padding: 100px 0;
+            background: var(--color-bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        .certifications::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(218, 37, 29, 0.08) 0%, transparent 60%);
+        }
+        .certifications .container { position: relative; z-index: 1; }
+        .certs-top {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .certs-top .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 14px;
+        }
+        .certs-top h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .certs-top h2 span { color: var(--color-red); }
+        .certs-top p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .cert-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 36px 24px;
+            text-align: center;
+            transition: background 0.35s, border-color 0.35s, transform 0.35s;
+            backdrop-filter: blur(4px);
+        }
+        .cert-card:hover {
+            background: rgba(218, 37, 29, 0.1);
+            border-color: rgba(218, 37, 29, 0.3);
+            transform: translateY(-5px);
+        }
+        .cert-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(218, 37, 29, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: background 0.3s;
+        }
+        .cert-card:hover .cert-icon { background: rgba(218, 37, 29, 0.3); }
+        .cert-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--color-red);
+        }
+        .cert-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .cert-card p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+        }
+        .cert-badge-tag {
+            display: inline-block;
+            margin-top: 14px;
+            background: rgba(218, 37, 29, 0.2);
+            color: var(--color-red);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* Timeline / Milestones */
+        .milestones {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .milestones-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .milestones-header .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 14px;
+        }
+        .milestones-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            color: var(--color-black);
+        }
+        .milestones-header h2 span { color: var(--color-red); }
+        .timeline {
+            position: relative;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--color-red), var(--color-red), transparent);
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 55px;
+            position: relative;
+            align-items: flex-start;
+        }
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: right;
+        }
+        .timeline-content {
+            flex: 1;
+            background: #f8f9fb;
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .timeline-content:hover {
+            box-shadow: 0 10px 30px rgba(218, 37, 29, 0.08);
+            transform: translateY(-2px);
+        }
+        .timeline-dot {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--color-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 0 6px rgba(218, 37, 29, 0.15);
+            margin-top: 12px;
+        }
+        .timeline-dot svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+        .timeline-year {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--color-red);
+            margin-bottom: 8px;
+        }
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 8px;
+        }
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* Bell Group */
+        .bell-group {
+            padding: 100px 0;
+            background: #f8f9fb;
+        }
+        .bell-group-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .bell-group-content .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 14px;
+        }
+        .bell-group-content h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--color-black);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .bell-group-content h2 span { color: var(--color-red); }
+        .bell-group-content p {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .group-companies {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .group-company-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .group-company-item:hover {
+            border-color: rgba(218, 37, 29, 0.25);
+            transform: translateX(4px);
+        }
+        .group-co-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(218, 37, 29, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .group-co-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-red);
+        }
+        .group-co-text h5 {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-black);
+        }
+        .group-co-text p {
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+            margin-bottom: 0;
+        }
+        .bell-group-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .group-stat-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 30px 24px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .group-stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(218, 37, 29, 0.1);
+        }
+        .group-stat-card:first-child {
+            grid-column: span 2;
+            background: var(--color-red);
+        }
+        .group-stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--color-red);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .group-stat-card:first-child .group-stat-number { color: #fff; }
+        .group-stat-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text-light);
+        }
+        .group-stat-card:first-child .group-stat-label { color: rgba(255,255,255,0.8); }
+
+        /* CTA */
+        .about-cta {
+            padding: 90px 0;
+            background: var(--color-bg-dark);
+            text-align: center;
+        }
+        .about-cta h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+        .about-cta h2 span { color: var(--color-red); }
+        .about-cta p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 560px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .cta-btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .story-grid, .bell-group-grid { grid-template-columns: 1fr; gap: 50px; }
+            .story-img-stack { height: 380px; }
+            .why-grid { grid-template-columns: 1fr 1fr; }
+            .certs-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .why-grid { grid-template-columns: 1fr; }
+            .certs-grid { grid-template-columns: 1fr 1fr; }
+            .timeline::before { left: 24px; }
+            .timeline-item, .timeline-item:nth-child(odd) { flex-direction: column; padding-left: 70px; }
+            .timeline-item:nth-child(odd) .timeline-content { text-align: left; }
+            .timeline-dot { position: absolute; left: 0; top: 0; }
+            .group-companies { grid-template-columns: 1fr; }
+            .bell-group-visual { grid-template-columns: 1fr 1fr; }
+            .group-stat-card:first-child { grid-column: span 2; }
+            .page-banner-deco { display: none; }
+        }
+        @media (max-width: 480px) {
+            .certs-grid { grid-template-columns: 1fr; }
+            .story-highlights { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Cinematic Preloader (Mandatory) -->
+    <div id="preloader" role="dialog" aria-modal="true" aria-label="Loading Website">
+        <canvas class="preloader-canvas" id="preloader-canvas"></canvas>
+        <div class="preloader-content">
+            <div class="preloader-stick-container">
+                <div class="preloader-striker"></div>
+                <div class="preloader-matchstick" id="preloader-stick"></div>
+            </div>
+            <h1 class="preloader-logo" id="preloader-logo">BELL <span>MATCH CO.</span></h1>
+            <div class="preloader-subtitle" id="preloader-subtitle">Igniting Sparks of Inspiration</div>
+            <div class="preloader-progress-wrap">
+                <div class="preloader-progress-bar" id="preloader-progress"></div>
+                <div class="progress-flame" id="progress-flame">
+                    <!-- Dynamic Spark / Fire Glow -->
+                </div>
+            </div>
+            <div class="preloader-percentage" id="preloader-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- Background Particle Canvas (Sparks) -->
+    <canvas id="spark-canvas"></canvas>
+
+    <!-- Top Info Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container top-contact-grid">
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>+91 78459 65010 (10 AM - 5 PM)</span>
+            </div>
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:sales@bellmatch.com">sales@bellmatch.com</a>
+            </div>
+            <div class="social-quick-links">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <a href="index.html#hero" class="logo" aria-label="The Bell Match Company Home">
+            <span class="logo-bell">BELL</span><span class="logo-match">MATCH</span>
+        </a>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html#hero">Home</a>
+            <div class="nav-dropdown-trigger">
+                <a href="about-us.html" class="dropdown-toggle active">About Us <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="about-us.html">Profile</a>
+                    <a href="infrastructure.html">Infrastructure</a>
+                    <a href="certificates.html">Certificates</a>
+                    <a href="policies.html">Policies</a>
+                </div>
+            </div>
+            <div class="nav-dropdown-trigger">
+                <a href="products.html" class="dropdown-toggle">Products <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="pocket-box-match.html">Pocket Box Matches</a>
+                    <a href="kitchen-box-match.html">Kitchen Box Matches</a>
+                    <a href="barbeque-box-match.html">Barbeque Box Matches</a>
+                    <a href="book-match.html">Match Books</a>
+                    <a href="cigar-match.html">Cigar Match Boxes</a>
+                    <a href="special-shape-match-boxes.html">Special Shape Match Boxes</a>
+                </div>
+            </div>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact-us.html" class="nav-cta">Contact Us</a>
+        </nav>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="page-banner-deco"></div>
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-sep">›</span>
+                    <span>About Us</span>
+                </div>
+                <h1>Company <span>Profile</span></h1>
+                <p>An admired organization of professionals renowned for exceptional customer service and an impeccable safety and compliance record — since 1997.</p>
+            </div>
+        </section>
+
+        <!-- Company Story -->
+        <section class="company-story" id="company-story">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-img-stack reveal-up">
+                        <div class="story-img-main">
+                            <div class="matchbox-img-wrapper top-right-img">
+                                <div class="matchbox-img-sleeve"></div>
+                                <div class="matchbox-img-drawer">
+                                    <div class="img-placeholder-content">
+                                        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                        <span>Factory Aerial View</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-img-secondary">
+                            <div class="matchbox-img-wrapper bottom-left-img">
+                                <div class="matchbox-img-sleeve"></div>
+                                <div class="matchbox-img-drawer">
+                                    <div class="img-placeholder-content">
+                                        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                        <span>Production Floor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="story-badge">
+                            <strong>1997</strong>
+                            <span>Established</span>
+                        </div>
+                    </div>
+                    <div class="story-content reveal-up">
+                        <span class="subtitle">Introduction</span>
+                        <h2>Our Company <span>Profile</span></h2>
+                        <h3 class="story-subheading" id="spark-subheading" style="opacity: 0; font-family: var(--font-heading); color: var(--color-orange); font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;">Igniting sparks of inspiration</h3>
+                        <p>The Bell Match Company is an admired organization of professionals renowned for exceptional customer service and an impeccable safety and compliance record. As part of the respected Bell Group of companies with interests in engineering, hotels and pyrotechnics we bring unmatched expertise, fresh ideas and strong financials to every endeavour.</p>
+                        <p>What makes us different is our ability to understand the complete needs of customers, distil the essence and deliver creative solutions that are enduring and inspiring. With well-differentiated product offerings and a sustainable manufacturing approach, we offer customers flexibility, stability and absolute peace of mind!</p>
+                        <p>Spread across 5 acres with a built-up area of over 120,000 square feet, our factory in Sivakasi is equipped with state-of-the-art machinery from Arenco, Herring, Roller Simplex and Columbia — built for scale, precision and compliance.</p>
+                        <div class="story-highlights">
+                            <div class="highlight-box">
+                                <h4>Expert Professionals</h4>
+                                <p>A seasoned team with deep experience across safety standards and global export compliance.</p>
+                            </div>
+                            <div class="highlight-box">
+                                <h4>Strong Financials</h4>
+                                <p>Backed by the Bell Group's solid multi-industry financial foundation.</p>
+                            </div>
+                            <div class="highlight-box">
+                                <h4>Customer First</h4>
+                                <p>Exceptional service and responsive communication with buyers worldwide.</p>
+                            </div>
+                            <div class="highlight-box">
+                                <h4>Eco Conscious</h4>
+                                <p>FSC Chain of Custody certification ensuring responsible forest sourcing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Our Vision -->
+        <section class="vision-section" id="vision-section" style="background: #ffffff; padding: 80px 0;">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <span class="subtitle">Our Purpose</span>
+                    <h2 class="section-title">Our <span>Vision</span></h2>
+                </div>
+                <div class="vision-matchbox-container">
+                    <div class="vision-matchbox-3d">
+                        <!-- Sleeve -->
+                        <div class="vision-sleeve">
+                            <svg class="vision-sleeve-logo" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                            <h3>OUR VISION</h3>
+                        </div>
+                        <!-- Drawer containing Vision Text -->
+                        <div class="vision-drawer">
+                            To ignite innovation, ensure safety, and build sustainable solutions that light up lives and industries globally.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Bell Match -->
+        <section class="why-bell" id="why-bell">
+            <div class="container">
+                <div class="section-header-left">
+                    <span class="subtitle">Why Choose Us</span>
+                    <h2>The Bell Match <span>Difference</span></h2>
+                    <p>We bring five pillars of excellence to every matchbox we manufacture — from the raw material selection to the final delivery on your doorstep.</p>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card reveal-up">
+                        <div class="why-card-num">01</div>
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        </div>
+                        <h3>Global Presence</h3>
+                        <p>Preferred partner for top brands in over 25 countries across geographies. Reliable logistics from Sivakasi to any port in the world.</p>
+                    </div>
+                    <div class="why-card reveal-up">
+                        <div class="why-card-num">02</div>
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        </div>
+                        <h3>Certified Safety</h3>
+                        <p>All matches are manufactured strictly as per the EN 1783 Safety Standard. Every batch quality-tested before dispatch.</p>
+                    </div>
+                    <div class="why-card reveal-up">
+                        <div class="why-card-num">03</div>
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+                        </div>
+                        <h3>Wide Selection</h3>
+                        <p>Broad selection range right from chemical head colors to matchstick length — tailored exactly to your specifications.</p>
+                    </div>
+                    <div class="why-card reveal-up">
+                        <div class="why-card-num">04</div>
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                        </div>
+                        <h3>High Personalization</h3>
+                        <p>Unmatched personalization possibilities for custom corporate branding, packaging, tip colors, and promotional matches.</p>
+                    </div>
+                    <div class="why-card reveal-up">
+                        <div class="why-card-num">05</div>
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                        </div>
+                        <h3>World-Class Facility</h3>
+                        <p>World-class manufacturing plant with 120,000 sq ft built-up area and compliance with all relevant industry codes.</p>
+                    </div>
+                    <div class="why-card reveal-up">
+                        <div class="why-card-num">06</div>
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19H3c-.55 0-1 .45-1 1v2h19v-2c0-.55-.45-1-1-1-.68-3.18-2-5-3-6-1.15 1-2.27 1.5-3 1.5-1 0-1.5-1-1.5-1S16 12 17 8z"/></svg>
+                        </div>
+                        <h3>Eco-Responsible</h3>
+                        <p>FSC Chain of Custody certification guarantees timber from sustainable, responsibly managed forest sources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="certifications" id="certifications">
+            <div class="container">
+                <div class="certs-top reveal-up">
+                    <span class="subtitle">Compliance & Standards</span>
+                    <h2>Our <span>Certifications</span></h2>
+                    <p>Every product we manufacture adheres to the highest international safety, quality, and environmental standards.</p>
+                </div>
+                <div class="certs-grid">
+                    <div class="cert-card reveal-up">
+                        <div class="cert-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        </div>
+                        <h4>EN 1783</h4>
+                        <p>European safety standard for safety matches — the gold standard of match manufacturing quality.</p>
+                        <span class="cert-badge-tag">Safety Certified</span>
+                    </div>
+                    <div class="cert-card reveal-up">
+                        <div class="cert-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19H3c-.55 0-1 .45-1 1v2h19v-2c0-.55-.45-1-1-1-.68-3.18-2-5-3-6-1.15 1-2.27 1.5-3 1.5-1 0-1.5-1-1.5-1S16 12 17 8z"/></svg>
+                        </div>
+                        <h4>FSC Chain of Custody</h4>
+                        <p>Forest Stewardship Council certification ensuring all wood sourced from responsible and sustainable forests.</p>
+                        <span class="cert-badge-tag">Eco Certified</span>
+                    </div>
+                    <div class="cert-card reveal-up">
+                        <div class="cert-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.33C18 2.99 16.03 1 13.67 1c-1.32 0-2.4.62-3.09 1.56L9 4.5l-1.58-1.94C6.73 1.62 5.65 1 4.33 1 1.97 1 0 2.99 0 5.34 0 7.41 1.29 9.2 3.09 10H2c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2zM9 18H7v-2h2v2zm0-4H7v-2h2v2zm4 4h-2v-2h2v2zm0-4h-2v-2h2v2zm4 4h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+                        </div>
+                        <h4>BRCGS Approved</h4>
+                        <p>British Retail Consortium Global Standard certification for our clean, hygienic matchbox packaging and manufacturing processes.</p>
+                        <span class="cert-badge-tag">Hygienic Grade</span>
+                    </div>
+                    <div class="cert-card reveal-up">
+                        <div class="cert-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <h4>India GMP Compliant</h4>
+                        <p>Compliant with India's Petroleum and Explosives Safety Organization (PESO) and Good Manufacturing Practices.</p>
+                        <span class="cert-badge-tag">Industry Standard</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Milestones Timeline -->
+        <section class="milestones" id="milestones">
+            <div class="container">
+                <div class="milestones-header reveal-up">
+                    <span class="subtitle">Our Journey</span>
+                    <h2>Key <span>Milestones</span></h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-content">
+                            <div class="timeline-year">1997</div>
+                            <div class="timeline-title">Founded in Sivakasi</div>
+                            <div class="timeline-desc">The Bell Match Company was established in the heart of India's matchbox manufacturing capital, Sivakasi, Tamil Nadu — with a vision for premium quality and global reach.</div>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                        </div>
+                        <div class="timeline-content" style="visibility:hidden;"></div>
+                    </div>
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-content" style="visibility:hidden;"></div>
+                        <div class="timeline-dot">
+                            <svg viewBox="0 0 24 24"><path d="M21 6.5l-1.5-1.5-8.5 8.5-4-4L5.5 11l6 6z"/></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2004</div>
+                            <div class="timeline-title">EN 1783 Certification</div>
+                            <div class="timeline-desc">Achieved European safety standard EN 1783 certification — opening doors to premium export markets across Europe and the UK.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2010</div>
+                            <div class="timeline-title">Factory Expansion to 5 Acres</div>
+                            <div class="timeline-desc">Completed expansion of our manufacturing facility to 5 acres and over 120,000 sq ft of built-up area, adding Arenco and Herring machinery for enhanced throughput.</div>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2z"/></svg>
+                        </div>
+                        <div class="timeline-content" style="visibility:hidden;"></div>
+                    </div>
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-content" style="visibility:hidden;"></div>
+                        <div class="timeline-dot">
+                            <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19H3c-.55 0-1 .45-1 1v2h19v-2c0-.55-.45-1-1-1-.68-3.18-2-5-3-6-1.15 1-2.27 1.5-3 1.5-1 0-1.5-1-1.5-1S16 12 17 8z"/></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2015</div>
+                            <div class="timeline-title">FSC Chain of Custody</div>
+                            <div class="timeline-desc">Received FSC Chain of Custody certification, becoming one of the first match manufacturers in Sivakasi to achieve this eco-responsible standard.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2019</div>
+                            <div class="timeline-title">25 Export Destinations</div>
+                            <div class="timeline-desc">Expanded our global reach to over 25 countries across Europe, the Middle East, North America, and Africa, establishing The Bell Match Company as a truly global manufacturer.</div>
+                        </div>
+                        <div class="timeline-dot">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        </div>
+                        <div class="timeline-content" style="visibility:hidden;"></div>
+                    </div>
+                    <div class="timeline-item reveal-up">
+                        <div class="timeline-content" style="visibility:hidden;"></div>
+                        <div class="timeline-dot">
+                            <svg viewBox="0 0 24 24"><path d="M21 6.5l-1.5-1.5-8.5 8.5-4-4L5.5 11l6 6z"/></svg>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021</div>
+                            <div class="timeline-title">Automated Matchbook Line Launch</div>
+                            <div class="timeline-desc">Commissioned specialized automated printing and assembly lines for our custom booklet matches and luxury cigar matchboxes, expanding our capacity by 40%.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bell Group -->
+        <section class="bell-group" id="bell-group">
+            <div class="container">
+                <div class="bell-group-grid">
+                    <div class="bell-group-content reveal-up">
+                        <span class="subtitle">Our Parent Group</span>
+                        <h2>Part of the <span>Bell Group</span></h2>
+                        <p>The Bell Match Company operates as part of the respected Bell Group of companies — a diversified conglomerate with strong interests across multiple industries. This multi-sector backing gives us unmatched financial stability, industry expertise, and a forward-thinking leadership culture.</p>
+                        <p>Being part of the Bell Group means we can invest in the best machinery, attract top talent, maintain impeccable standards, and offer our customers the confidence that comes from a large, established and financially sound organization.</p>
+                        <div class="group-companies">
+                            <div class="group-company-item">
+                                <div class="group-co-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M19.36 10.04L20.57 7.6l-2.44-1.21-1.21 2.44-3.86-1.93 1.21-2.44-2.44-1.21-1.21 2.44-4.22-2.11L5 5.86l4.22 2.11L8 10.42l-2.44-1.21-1.21 2.44 2.44 1.21-1.21 2.44 2.44 1.21 1.21-2.44 3.86 1.93z"/></svg>
+                                </div>
+                                <div class="group-co-text">
+                                    <h5>Bell Engineering</h5>
+                                    <p>Precision industrial engineering</p>
+                                </div>
+                            </div>
+                            <div class="group-company-item">
+                                <div class="group-co-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+                                </div>
+                                <div class="group-co-text">
+                                    <h5>Bell Hotels</h5>
+                                    <p>Hospitality & accommodation</p>
+                                </div>
+                            </div>
+                            <div class="group-company-item">
+                                <div class="group-co-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                                </div>
+                                <div class="group-co-text">
+                                    <h5>Bell Pyrotechnics</h5>
+                                    <p>Fireworks & pyrotechnics</p>
+                                </div>
+                            </div>
+                            <div class="group-company-item">
+                                <div class="group-co-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2z"/></svg>
+                                </div>
+                                <div class="group-co-text">
+                                    <h5>Bell Match Co.</h5>
+                                    <p>Premium safety matches</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bell-group-visual reveal-up">
+                        <div class="group-stat-card">
+                            <div class="group-stat-number">28+</div>
+                            <div class="group-stat-label">Years of Combined Group Legacy</div>
+                        </div>
+                        <div class="group-stat-card">
+                            <div class="group-stat-number">25+</div>
+                            <div class="group-stat-label">Export Countries</div>
+                        </div>
+                        <div class="group-stat-card">
+                            <div class="group-stat-number">5</div>
+                            <div class="group-stat-label">Acres Factory</div>
+                        </div>
+                        <div class="group-stat-card">
+                            <div class="group-stat-number">120K</div>
+                            <div class="group-stat-label">Sq Ft Built-up Area</div>
+                        </div>
+                        <div class="group-stat-card">
+                            <div class="group-stat-number">4</div>
+                            <div class="group-stat-label">Group Companies</div>
+                        </div>
+                        <div class="group-stat-card">
+                            <div class="group-stat-number">3</div>
+                            <div class="group-stat-label">Int'l Certifications</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="about-cta">
+            <div class="container reveal-up">
+                <h2>Ready to Partner With <span>Bell Match?</span></h2>
+                <p>Get in touch with our team for bulk enquiries, custom branding requirements, or any product-related questions.</p>
+                <div class="cta-btn-group">
+                    <a href="contact-us.html" class="btn btn-primary"><span>Contact Us</span></a>
+                    <a href="products.html" class="btn btn-secondary">View Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Contact Information -->
+        <section class="about-contact-info" style="padding: 60px 0; background: #f8f9fb; border-top: 1px solid rgba(0,0,0,0.05);">
+            <div class="container">
+                <div class="contact-info-cards reveal-up" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    
+                    <div class="contact-detail-card" style="background: #fff; border-radius: 12px; padding: 30px; border: 1px solid rgba(0,0,0,0.05); display: flex; gap: 20px; align-items: flex-start;">
+                        <div class="contact-card-icon" style="background: rgba(218, 37, 29, 0.05); border-radius: 50%; padding: 10px; flex-shrink: 0; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 50 50" style="width: 50px; height: 50px; overflow: visible;">
+                                <!-- Mini Drawer sliding out -->
+                                <rect x="30" y="14" width="12" height="22" rx="2" fill="#ebdcb9" stroke="#9c8e76" stroke-width="1.2" />
+                                <!-- Matchstick inside drawer -->
+                                <line x1="36" y1="18" x2="36" y2="32" stroke="#ebdcb9" stroke-width="2.5" stroke-linecap="round" />
+                                <circle cx="36" cy="18" r="2.2" fill="var(--color-red)" />
+                                <!-- Sleeve -->
+                                <rect x="5" y="10" width="28" height="30" rx="3" fill="#020e27" stroke="var(--color-red)" stroke-width="1.8" />
+                                <!-- Striker strip -->
+                                <line x1="7" y1="10" x2="7" y2="40" stroke="#3a2217" stroke-width="2.5" stroke-dasharray="2 1" />
+                                <!-- Centered Phone handset icon inside sleeve -->
+                                <path d="M15 17.5a1.5 1.5 0 0 1 1.5-1.5H18c.3 0 .6.2.7.5l.7 1.8c.1.3 0 .6-.2.8l-1 1c.5 1.2 1.3 2 2.5 2.5l1-1c.2-.2.5-.3.8-.2l1.8.7c.3.1.5.4.5.7V24a1.5 1.5 0 0 1-1.5 1.5h-.8c-3.7 0-6.7-3-6.7-6.7v-.8z" fill="#ffffff"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading);">Call Us Now</h3>
+                            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 4px;">(10am - 5pm IST)</p>
+                            <p style="font-weight: 700; color: var(--color-red); font-size: 1.1rem; margin: 0;">+91 78459 65010</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-card" style="background: #fff; border-radius: 12px; padding: 30px; border: 1px solid rgba(0,0,0,0.05); display: flex; gap: 20px; align-items: flex-start;">
+                        <div class="contact-card-icon" style="background: rgba(218, 37, 29, 0.05); border-radius: 50%; padding: 10px; flex-shrink: 0; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 50 50" style="width: 50px; height: 50px; overflow: visible;">
+                                <!-- Mini Drawer sliding out -->
+                                <rect x="30" y="14" width="12" height="22" rx="2" fill="#ebdcb9" stroke="#9c8e76" stroke-width="1.2" />
+                                <!-- Matchstick inside drawer -->
+                                <line x1="36" y1="18" x2="36" y2="32" stroke="#ebdcb9" stroke-width="2.5" stroke-linecap="round" />
+                                <circle cx="36" cy="18" r="2.2" fill="var(--color-red)" />
+                                <!-- Sleeve -->
+                                <rect x="5" y="10" width="28" height="30" rx="3" fill="#020e27" stroke="var(--color-red)" stroke-width="1.8" />
+                                <!-- Striker strip -->
+                                <line x1="7" y1="10" x2="7" y2="40" stroke="#3a2217" stroke-width="2.5" stroke-dasharray="2 1" />
+                                <!-- Centered Envelope icon inside sleeve -->
+                                <path d="M12 16a1 1 0 0 1 1-1h12c.5 0 1 .4 1 1v8a1 1 0 0 1-1 1H13c-.5 0-1-.4-1-1v-8zm1.5 1v1l4.5 3 4.5-3v-1l-4.5 3-4.5-3z" fill="#ffffff"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading);">Email Us</h3>
+                            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 4px;">For general sales & quotes</p>
+                            <p style="margin: 0;"><a href="mailto:sales@bellmatch.com" style="color: var(--color-red); font-weight: 700;">sales@bellmatch.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-card" style="background: #fff; border-radius: 12px; padding: 30px; border: 1px solid rgba(0,0,0,0.05); display: flex; gap: 20px; align-items: flex-start;">
+                        <div class="contact-card-icon" style="background: rgba(218, 37, 29, 0.05); border-radius: 50%; padding: 10px; flex-shrink: 0; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 50 50" style="width: 50px; height: 50px; overflow: visible;">
+                                <!-- Mini Drawer sliding out -->
+                                <rect x="30" y="14" width="12" height="22" rx="2" fill="#ebdcb9" stroke="#9c8e76" stroke-width="1.2" />
+                                <!-- Matchstick inside drawer -->
+                                <line x1="36" y1="18" x2="36" y2="32" stroke="#ebdcb9" stroke-width="2.5" stroke-linecap="round" />
+                                <circle cx="36" cy="18" r="2.2" fill="var(--color-red)" />
+                                <!-- Sleeve -->
+                                <rect x="5" y="10" width="28" height="30" rx="3" fill="#020e27" stroke="var(--color-red)" stroke-width="1.8" />
+                                <!-- Striker strip -->
+                                <line x1="7" y1="10" x2="7" y2="40" stroke="#3a2217" stroke-width="2.5" stroke-dasharray="2 1" />
+                                <!-- Centered Pin icon inside sleeve -->
+                                <path d="M19 14a4 4 0 0 0-4 4c0 2.8 4 7.6 4 7.6s4-4.8 4-7.6a4 4 0 0 0-4-4zm0 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#ffffff"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-text">
+                            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; font-family: var(--font-heading);">Location</h3>
+                            <p style="font-size: 0.85rem; color: var(--color-text-light); line-height: 1.5; margin: 0; font-weight: 500;">
+                                2/180, T. Managaseri, Malli (via)<br>
+                                Srivilliputhur, Virudunagar (Dist)<br>
+                                Pin: 626141 India
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h4>
+                        <span class="logo-bell" style="color: var(--color-red);">BELL</span><span class="logo-match" style="color: #fff;">MATCH</span>
+                    </h4>
+                    <p>The Bell Match Company is an admired organization of professionals renowned for exceptional customer service and an impeccable safety and compliance record.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="pocket-box-match.html">Pocket Box Matches</a></li>
+                        <li><a href="kitchen-box-match.html">Kitchen Box Matches</a></li>
+                        <li><a href="barbeque-box-match.html">Barbeque Box Matches</a></li>
+                        <li><a href="book-match.html">Match Books</a></li>
+                        <li><a href="cigar-match.html">Cigar Match Boxes</a></li>
+                        <li><a href="special-shape-match-boxes.html">Special Shape Matches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about-us.html">About Our Profile</a></li>
+                        <li><a href="infrastructure.html">Factory Infrastructure</a></li>
+                        <li><a href="certificates.html">Certifications</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                        <li><a href="gallery.html">Industrial Gallery</a></li>
+                        <li><a href="contact-us.html">Contact & Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to receive industrial updates, batch releases, and company notifications.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="return false;">
+                        <input type="email" class="newsletter-input" placeholder="Your Email" required>
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #fff;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 bellmatch - All Rights Reserved. &nbsp;|&nbsp; Web Design: NIKITHA</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <script src="layout/layout.js"></script>`r`n    <script src="app.js"></script>
+    <script>
+        // Page-specific scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.reveal-up').forEach((el, i) => {
+                    gsap.fromTo(el, 
+                        { opacity: 0, y: 40 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            ease: 'power2.out',
+                            delay: (i % 3) * 0.1,
+                            scrollTrigger: {
+                                trigger: el,
+                                start: 'top 88%',
+                                toggleActions: 'play none none none'
+                            }
+                        }
+                    );
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications & Compliance | The Bell Match Company</title>
+    <meta name="description" content="Explore The Bell Match Company's international safety, quality, and environmental compliance certifications, including FSC CoC, ISO 9001:2015, and BRCGS compliance.">
+    <meta name="keywords" content="Bell Match Company certifications, FSC certified matches, ISO 9001 matches, BRCGS matchbox packaging, Sivakasi safety matches">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 80px 0;
+        }
+        .cert-card {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-gold);
+        }
+        .cert-card.red::before {
+            background: var(--color-red);
+        }
+        .cert-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.08);
+            border-radius: 50%;
+            color: var(--color-gold);
+        }
+        .cert-card.red .cert-icon {
+            background: rgba(218, 37, 29, 0.08);
+            color: var(--color-red);
+        }
+        .cert-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: currentColor;
+        }
+        .cert-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--color-black);
+        }
+        .cert-card .code {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: rgba(0,0,0,0.04);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            color: var(--color-text-light);
+        }
+        .cert-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Cinematic Preloader -->
+    <div id="preloader" role="dialog" aria-modal="true" aria-label="Loading Website">
+        <canvas class="preloader-canvas" id="preloader-canvas"></canvas>
+        <div class="preloader-content">
+            <div class="preloader-stick-container">
+                <div class="preloader-striker"></div>
+                <div class="preloader-matchstick" id="preloader-stick"></div>
+            </div>
+            <h1 class="preloader-logo" id="preloader-logo">BELL <span>MATCH CO.</span></h1>
+            <div class="preloader-subtitle" id="preloader-subtitle">Loading Credentials...</div>
+            <div class="preloader-progress-wrap">
+                <div class="preloader-progress-bar" id="preloader-progress"></div>
+                <div class="progress-flame" id="progress-flame"></div>
+            </div>
+            <div class="preloader-percentage" id="preloader-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- Background Particle Canvas (Sparks) -->
+    <canvas id="spark-canvas"></canvas>
+
+    <!-- Top Info Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container top-contact-grid">
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>+91 78459 65010 (10 AM - 5 PM)</span>
+            </div>
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:sales@bellmatch.com">sales@bellmatch.com</a>
+            </div>
+            <div class="social-quick-links">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <a href="index.html#hero" class="logo" aria-label="The Bell Match Company Home">
+            <span class="logo-bell">BELL</span><span class="logo-match">MATCH</span>
+        </a>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html#hero">Home</a>
+            <div class="nav-dropdown-trigger">
+                <a href="about-us.html" class="dropdown-toggle active">About Us <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="about-us.html">Profile</a>
+                    <a href="infrastructure.html">Infrastructure</a>
+                    <a href="certificates.html">Certificates</a>
+                    <a href="policies.html">Policies</a>
+                </div>
+            </div>
+            <div class="nav-dropdown-trigger">
+                <a href="products.html" class="dropdown-toggle">Products <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="pocket-box-match.html">Pocket Box Matches</a>
+                    <a href="kitchen-box-match.html">Kitchen Box Matches</a>
+                    <a href="barbeque-box-match.html">Barbeque Box Matches</a>
+                    <a href="book-match.html">Match Books</a>
+                    <a href="cigar-match.html">Cigar Match Boxes</a>
+                    <a href="special-shape-match-boxes.html">Special Shape Match Boxes</a>
+                </div>
+            </div>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact-us.html" class="nav-cta">Contact Us</a>
+        </nav>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-sep">&gt;</span>
+                    <a href="about-us.html">About Us</a>
+                    <span class="breadcrumb-sep">&gt;</span>
+                    <span>Certificates</span>
+                </div>
+                <h1>Certifications & <span>Compliance</span></h1>
+                <p>We maintain an impeccable quality and safety compliance record. Our manufacturing processes conform to leading international sustainability, hygiene, and safety protocols.</p>
+                <div class="page-banner-deco"></div>
+            </div>
+        </section>
+
+        <!-- Certificates Details -->
+        <section style="background: #fafafa; padding: 60px 0;">
+            <div class="container">
+                <div class="cert-grid">
+                    
+                    <!-- FSC CoC -->
+                    <div class="cert-card reveal-up">
+                        <div class="cert-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M2 22h20V2H2v20zm8-16.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5c0 .54-.29 1.01-.72 1.28L13 10h-2l.72-3.22c-.43-.27-.72-.74-.72-1.28zm-2.5 8c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5c0 .54-.29 1.01-.72 1.28L10.5 18h-2l.72-3.22c-.43-.27-.72-.74-.72-1.28zm7.5 0c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5c0 .54-.29 1.01-.72 1.28L18 18h-2l.72-3.22c-.43-.27-.72-.74-.72-1.28z"/>
+                            </svg>
+                        </div>
+                        <h3>FSC® Chain of Custody</h3>
+                        <div class="code">FSC-C163539</div>
+                        <p>Our voluntarily undertaken Forest Stewardship Council Chain of Custody certification guarantees that the wood used to manufacture our safety matches is sourced strictly from responsibly managed and verified forests.</p>
+                    </div>
+
+                    <!-- ISO 9001:2015 -->
+                    <div class="cert-card red reveal-up">
+                        <div class="cert-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                        </div>
+                        <h3>ISO 9001:2015</h3>
+                        <div class="code">Quality Management</div>
+                        <p>Our operations follow strict, audited quality management guidelines, ensuring high reliability, defect prevention, and batch traceability from processing wood splints to chemical head dipping.</p>
+                    </div>
+
+                    <!-- BRCGS Certification -->
+                    <div class="cert-card reveal-up">
+                        <div class="cert-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                            </svg>
+                        </div>
+                        <h3>BRCGS Certification</h3>
+                        <div class="code">Global Safety Standard</div>
+                        <p>Our manufacturing and processing units operate under BRCGS-certified guidelines to ensure clean, safe, and hygienic matchbox packaging and wood-splint processing, maintaining absolute hygiene and full compliance for domestic and international export demands.</p>
+                    </div>
+
+                    <!-- EN 1783 -->
+                    <div class="cert-card red reveal-up">
+                        <div class="cert-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/>
+                            </svg>
+                        </div>
+                        <h3>EN 1783 Standard</h3>
+                        <div class="code">Safety Matches Compliance</div>
+                        <p>All safety matches are designed, tested, and audited in compliance with European Standard EN 1783. This assures perfect strike sensitivity, zero afterglow, zero flying sparks, and sturdy carton friction surfaces.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>BELL MATCH CO.</h4>
+                    <p>Admired safety match manufacturer and global exporter, pioneering sustainable, high-compliance safety matches and custom book matches since 1997.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="pocket-box-match.html">Pocket Box Matches</a></li>
+                        <li><a href="kitchen-box-match.html">Kitchen Box Matches</a></li>
+                        <li><a href="barbeque-box-match.html">Barbeque Box Matches</a></li>
+                        <li><a href="book-match.html">Match Books</a></li>
+                        <li><a href="cigar-match.html">Cigar Match Boxes</a></li>
+                        <li><a href="special-shape-match-boxes.html">Special Shape Matches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about-us.html">About Our Profile</a></li>
+                        <li><a href="infrastructure.html">Factory Infrastructure</a></li>
+                        <li><a href="certificates.html">Certifications</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                        <li><a href="gallery.html">Industrial Gallery</a></li>
+                        <li><a href="contact-us.html">Contact & Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to receive industrial updates, batch releases, and company notifications.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="return false;">
+                        <input type="email" class="newsletter-input" placeholder="Your Email" required>
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #fff;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 bellmatch - All Rights Reserved. &nbsp;|&nbsp; Web Design: NIKITHA</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <script src="layout/layout.js"></script>`r`n    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.reveal-up').forEach((el, i) => {
+                    gsap.fromTo(el, 
+                        { opacity: 0, y: 40 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            ease: 'power2.out',
+                            delay: (i % 2) * 0.1,
+                            scrollTrigger: {
+                                trigger: el,
+                                start: 'top 88%',
+                                toggleActions: 'play none none none'
+                            }
+                        }
+                    );
+                });
+            }
+        });
+    </script>
+</body>
+</html>

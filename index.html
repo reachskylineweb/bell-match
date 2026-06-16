@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGNIS | Premium Safety Matches & Matchbox Manufacturer</title>
+    
+    <!-- Meta Descriptions (SEO Best Practices) -->
+    <meta name="description" content="IGNIS Match Co. is a world-class premium manufacturer and exporter of safety matches, wood splints, and customized matches. Delivering safety and fiery excellence globally.">
+    <meta name="keywords" content="safety matches, matchbox manufacturer, custom matches, premium matches, matchstick exporter, wood splints, fire industry">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="IGNIS | Premium Safety Matches Manufacturer">
+    <meta property="og:description" content="Cinematic quality, eco-friendly, and custom safety matches. Igniting innovation since 1974.">
+    <meta property="og:type" content="website">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Cinematic Preloader (Mandatory) -->
+    <div id="preloader" role="dialog" aria-modal="true" aria-label="Loading Website">
+        <canvas class="preloader-canvas" id="preloader-canvas"></canvas>
+        <div class="preloader-content">
+            <div class="preloader-stick-container">
+                <div class="preloader-striker"></div>
+                <div class="preloader-matchstick" id="preloader-stick"></div>
+            </div>
+            <h1 class="preloader-logo" id="preloader-logo">BELL <span>MATCH CO.</span></h1>
+            <div class="preloader-subtitle" id="preloader-subtitle">Igniting Sparks of Inspiration</div>
+            <div class="preloader-progress-wrap">
+                <div class="preloader-progress-bar" id="preloader-progress"></div>
+                <div class="progress-flame" id="progress-flame">
+                    <!-- Dynamic Spark / Fire Glow -->
+                </div>
+            </div>
+            <div class="preloader-percentage" id="preloader-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- Background Particle Canvas (Sparks) -->
+    <canvas id="spark-canvas"></canvas>
+
+    <!-- Top Info Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container top-contact-grid">
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>+91 78459 65010 (10 AM - 5 PM)</span>
+            </div>
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:sales@bellmatch.com">sales@bellmatch.com</a>
+            </div>
+            <div class="social-quick-links">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <a href="index.html#hero" class="logo" aria-label="The Bell Match Company Home">
+            <span class="logo-bell">BELL</span><span class="logo-match">MATCH</span>
+        </a>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html#hero">Home</a>
+            <div class="nav-dropdown-trigger">
+                <a href="about-us.html" class="dropdown-toggle">About Us <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="about-us.html">Profile</a>
+                    <a href="infrastructure.html">Infrastructure</a>
+                    <a href="certificates.html">Certificates</a>
+                    <a href="policies.html">Policies</a>
+                </div>
+            </div>
+            <div class="nav-dropdown-trigger">
+                <a href="products.html" class="dropdown-toggle">Products <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="pocket-box-match.html">Pocket Box Matches</a>
+                    <a href="kitchen-box-match.html">Kitchen Box Matches</a>
+                    <a href="barbeque-box-match.html">Barbeque Box Matches</a>
+                    <a href="book-match.html">Match Books</a>
+                    <a href="cigar-match.html">Cigar Match Boxes</a>
+                    <a href="special-shape-match-boxes.html">Special Shape Match Boxes</a>
+                </div>
+            </div>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact-us.html" class="nav-cta">Contact Us</a>
+        </nav>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- SECTION 1: Hero Section with Interactive 3D Matchbox -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-tag">The Bell Match Company</div>
+                        <h1 class="hero-title">Igniting sparks of <span>inspiration.</span></h1>
+                        <p class="hero-desc">The Bell Match Company is an admired organization of professionals renowned for exceptional customer service.</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary"><span>Contact Us</span></a>
+                        </div>
+                    </div>
+                    <div class="hero-visual" id="hero-visual">
+                        <canvas class="hero-canvas" id="hero-canvas"></canvas>
+                        
+                        <!-- CSS 3D Matchbox Structure -->
+                        <div class="matchbox-3d-wrapper vertical-box" id="hero-matchbox">
+                            <div class="matchbox-3d">
+                                
+                                <!-- Outer Sleeve (6 Faces) -->
+                                <div class="face sleeve-face sleeve-front">
+                                    <div class="sleeve-label-border">
+                                        <div class="sleeve-label-logo">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="sleeve-label-title">BELL</div>
+                                        <div class="sleeve-label-subtitle">SAFETY MATCHES</div>
+                                        <div class="sleeve-label-bottom-text">SIVAKASI • ESTD 1997</div>
+                                    </div>
+                                </div>
+                                <div class="face sleeve-face sleeve-back">
+                                    <div class="sleeve-back-info">
+                                        <p style="font-weight:700; margin-bottom: 5px;">THE BELL MATCH COMPANY</p>
+                                        <p>Premium matches manufactured to EN 1783 standards. Average contents: 45 sticks. Keep away from children. Store in a dry place.</p>
+                                    </div>
+                                </div>
+                                <div class="face sleeve-face sleeve-top"></div>
+                                <div class="face sleeve-face sleeve-bottom"></div>
+                                <div class="face sleeve-face sleeve-left"></div>
+                                <div class="face sleeve-face sleeve-right"></div>
+                                
+                                <!-- Inner Drawer (Slides out of Right Sleeve face) -->
+                                <div class="drawer-3d" id="matchbox-drawer">
+                                    <div class="face drawer-face drawer-bottom"></div>
+                                    <div class="face drawer-face drawer-front"></div>
+                                    <div class="face drawer-face drawer-back"></div>
+                                    <div class="face drawer-face drawer-left"></div>
+                                    <div class="face drawer-face drawer-right"></div>
+                                     
+                                    <!-- Matchsticks Inside Drawer -->
+                                    <div class="drawer-matches">
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        <div class="matchstick"></div>
+                                        
+                                        <!-- The prominent interactive matchstick -->
+                                        <div class="interactive-matchstick" id="hero-matchstick"></div>
+                                        <div class="interactive-matchstick" id="hero-matchstick-2" style="top: 50px; z-index: 9;"></div>
+                                        <div class="interactive-matchstick" id="hero-matchstick-3" style="top: 70px; z-index: 9;"></div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <!-- Shadows & Reflection -->
+                        <div class="hero-shadow-reflection" id="hero-shadow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section Removed -->        <!-- SECTION 3: Infrastructure -->
+        <section class="infrastructure" id="infrastructure">
+            <div class="container">
+                <div class="infra-grid">
+                    <div class="infra-content">
+                        <span class="subtitle">Our Factory Facility</span>
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 25px;">World-Class <span>Infrastructure</span></h2>
+                        <p class="infra-text">Spread over 5 acres, with a built up area of over 120,000 square feet, our factory has been designed keeping in mind the growth possibilities and future expansion. The robust infrastructure under our hood helps us deliver reliable solutions and keeps the unit ticking all-round the year.</p>
+                        <p class="infra-text">With state-of-the art machinery from reputed manufacturers like Arenco, Herring, Roller Simplex and Columbia, we are a class apart in understanding and delivering absolute value.</p>
+                        
+                        <div class="infra-highlights">
+                            <div class="infra-highlight-item">
+                                <div class="highlight-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M19.36 10.04L20.57 7.6l-2.44-1.21-1.21 2.44-3.86-1.93 1.21-2.44-2.44-1.21-1.21 2.44-4.22-2.11L5 5.86l4.22 2.11L8 10.42l-2.44-1.21-1.21 2.44 2.44 1.21-1.21 2.44 2.44 1.21 1.21-2.44 3.86 1.93-1.21 2.44 2.44 1.21 1.21-2.44 4.22 2.11 1.41-2.27-4.22-2.11 1.21-2.44 2.44 1.21 1.21-2.44-2.44-1.21 1.21-2.44z"/></svg>
+                                </div>
+                                <div>
+                                    <h5>Advanced Machinery</h5>
+                                    <p>Arenco, Herring, Roller Simplex, and Columbia manufacturing units.</p>
+                                </div>
+                            </div>
+                            <div class="infra-highlight-item">
+                                <div class="highlight-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                                </div>
+                                <div>
+                                    <h5>Compliance Approved</h5>
+                                    <p>FSC Chain of Custody and EN 1783 safety standard compliant.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="infra-action">
+                            <a href="infrastructure.html" class="btn btn-primary"><span>View More</span></a>
+                        </div>
+                    </div>
+                    <div class="infra-visual">
+                        <div class="infra-img-placeholder">
+                            <div class="placeholder-overlay">
+                                <svg viewBox="0 0 24 24" class="placeholder-icon"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                <span>Factory Facility Image</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Product Showcase (3D Swap Carousel) -->
+        <section class="products" id="products">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Product Portfolio</span>
+                    <h2 class="section-title">Safety Matches & <span>Packaging</span></h2>
+                </div>
+                
+                <div class="carousel-section-wrap">
+                    
+                    <!-- 3D Interactive Carousel Viewport -->
+                    <div class="carousel-container-3d" id="product-carousel">
+                        <div class="carousel-track-3d" id="carousel-track">
+                            
+                            <!-- Card 1: Pocket Box Matches -->
+                            <div class="product-card-3d" data-index="0">
+                                <div class="box-3d">
+                                    <div class="box-face box-front product-label label-home">
+                                        <div class="label-brand">BELL MATCH</div>
+                                        <div class="label-logo">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="label-title">POCKET</div>
+                                            <div class="label-subtitle">BOX MATCHES</div>
+                                            <div class="label-description">Durable, high-quality pocket matches manufactured to EN 1783 safety standards.</div>
+                                        </div>
+                                        <div class="label-spec">Avg 40 Sticks | Regular Size</div>
+                                    </div>
+                                    <div class="box-face box-back"></div>
+                                    <div class="box-face box-top"></div>
+                                    <div class="box-face box-bottom"></div>
+                                    <div class="box-face box-left"></div>
+                                    <div class="box-face box-right"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2: Kitchen Box Matches -->
+                            <div class="product-card-3d" data-index="1">
+                                <div class="box-3d">
+                                    <div class="box-face box-front product-label label-luxury">
+                                        <div class="label-brand">BELL MATCH</div>
+                                        <div class="label-logo">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="label-title">KITCHEN</div>
+                                            <div class="label-subtitle">LONG SPLINTS</div>
+                                            <div class="label-description">Longer wood stems for safe stove, grill, and deep burner ignition. Zero afterglow.</div>
+                                        </div>
+                                        <div class="label-spec">Avg 45 Sticks | Medium Long</div>
+                                    </div>
+                                    <div class="box-face box-back"></div>
+                                    <div class="box-face box-top"></div>
+                                    <div class="box-face box-bottom"></div>
+                                    <div class="box-face box-left"></div>
+                                    <div class="box-face box-right"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3: Barbeque Box Matches -->
+                            <div class="product-card-3d" data-index="2">
+                                <div class="box-3d">
+                                    <div class="box-face box-front product-label label-outdoor">
+                                        <div class="label-brand">BELL MATCH</div>
+                                        <div class="label-logo">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="label-title">BARBEQUE</div>
+                                            <div class="label-subtitle">EXTRA LONG MATCHES</div>
+                                            <div class="label-description">Extra long aspen wood safety matches designed for safe outdoor grill ignition.</div>
+                                        </div>
+                                        <div class="label-spec">Up to 280mm | Outdoor Grills</div>
+                                    </div>
+                                    <div class="box-face box-back"></div>
+                                    <div class="box-face box-top"></div>
+                                    <div class="box-face box-bottom"></div>
+                                    <div class="box-face box-left"></div>
+                                    <div class="box-face box-right"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 4: Match Books -->
+                            <div class="product-card-3d" data-index="3">
+                                <div class="box-3d">
+                                    <div class="box-face box-front product-label label-custom">
+                                        <div class="label-brand">BELL MATCH</div>
+                                        <div class="label-logo">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="label-title">MATCH</div>
+                                            <div class="label-subtitle">BOOKS & BOOKLETS</div>
+                                            <div class="label-description">Custom printed promotional matchbooks with high-gloss cardboard covers.</div>
+                                        </div>
+                                        <div class="label-spec">Bespoke Print | 10k Min</div>
+                                    </div>
+                                    <div class="box-face box-back"></div>
+                                    <div class="box-face box-top"></div>
+                                    <div class="box-face box-bottom"></div>
+                                    <div class="box-face box-left"></div>
+                                    <div class="box-face box-right"></div>
+                                </div>
+                            </div>
+
+                            <!-- Card 5: Cigar Match Boxes -->
+                            <div class="product-card-3d" data-index="4">
+                                <div class="box-3d">
+                                    <div class="box-face box-front product-label label-luxury">
+                                        <div class="label-brand">BELL MATCH</div>
+                                        <div class="label-logo">
+                                            <svg viewBox="0 0 24 24" style="fill: var(--color-gold);">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="label-title">CIGAR</div>
+                                            <div class="label-subtitle">MATCH BOXES</div>
+                                            <div class="label-description">Slow-burning matches made from solid wood to light cigars evenly with zero chemical taste.</div>
+                                        </div>
+                                        <div class="label-spec">50 Sticks | 96mm / 150mm</div>
+                                    </div>
+                                    <div class="box-face box-back"></div>
+                                    <div class="box-face box-top"></div>
+                                    <div class="box-face box-bottom"></div>
+                                    <div class="box-face box-left"></div>
+                                    <div class="box-face box-right"></div>
+                                </div>
+                            </div>
+
+                            <!-- Card 6: Special Shape Match Boxes -->
+                            <div class="product-card-3d" data-index="5">
+                                <div class="box-3d">
+                                    <div class="box-face box-front product-label label-home">
+                                        <div class="label-brand">BELL MATCH</div>
+                                        <div class="label-logo">
+                                            <svg viewBox="0 0 24 24" style="fill: var(--color-red);">
+                                                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div class="label-title">SPECIAL</div>
+                                            <div class="label-subtitle">SHAPE MATCHES</div>
+                                            <div class="label-description">Decorative customized circular, triangle, and specialty matchbox shapes.</div>
+                                        </div>
+                                        <div class="label-spec">Custom Sizes | SS-2 & SS-3</div>
+                                    </div>
+                                    <div class="box-face box-back"></div>
+                                    <div class="box-face box-top"></div>
+                                    <div class="box-face box-bottom"></div>
+                                    <div class="box-face box-left"></div>
+                                    <div class="box-face box-right"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <!-- Description Area for Active Carousel Slide -->
+                    <div class="product-details-display">
+                        
+                        <div class="details-content active" id="details-0">
+                            <h3 class="details-title">Pocket Box Matches</h3>
+                            <p class="details-desc">Our pocket box matches are the preferred choice for daily household and retail markets. Crafted from selected wood stems, treated to prevent afterglow, and packaged in friction-coated sleeves.</p>
+                            <div class="details-specs">
+                                <div class="details-spec-item">WOOD TYPE <strong>White Aspen / Poplar</strong></div>
+                                <div class="details-spec-item">BOX DIMENSIONS <strong>53 x 36 x 12 mm</strong></div>
+                                <div class="details-spec-item">STANDARDS <strong>EN 1783 safety standard</strong></div>
+                            </div>
+                            <div style="margin-top: 15px;"><a href="pocket-box-match.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;"><span>View Specifications</span></a></div>
+                        </div>
+                        
+                        <div class="details-content" id="details-1">
+                            <h3 class="details-title">Kitchen Box Matches</h3>
+                            <p class="details-desc">Specially made for kitchen use, featuring longer splints that keep fingers safe when reaching into burners, stoves, or deep ovens. Splints are chemically carbonized for zero afterglow.</p>
+                            <div class="details-specs">
+                                <div class="details-spec-item">WOOD TYPE <strong>White Aspen / Poplar</strong></div>
+                                <div class="details-spec-item">BOX DIMENSIONS <strong>118 x 67 x 25 mm</strong></div>
+                                <div class="details-spec-item">STRIKER STRIP <strong>All-weather phosphorus</strong></div>
+                            </div>
+                            <div style="margin-top: 15px;"><a href="kitchen-box-match.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;"><span>View Specifications</span></a></div>
+                        </div>
+                        
+                        <div class="details-content" id="details-2">
+                            <h3 class="details-title">Barbeque Box Matches</h3>
+                            <p class="details-desc">Extra-long safety matches designed for lighting grills, barbeques, deep fireplaces, and fire pits safely. Features heavy-duty wood stems and wind-resistant match heads.</p>
+                            <div class="details-specs">
+                                <div class="details-spec-item">WOOD TYPE <strong>White Aspen</strong></div>
+                                <div class="details-spec-item">LENGTHS <strong>96mm / 170mm / 280mm</strong></div>
+                                <div class="details-spec-item">PACKING <strong>Single / Double / Tri Packs</strong></div>
+                            </div>
+                            <div style="margin-top: 15px;"><a href="barbeque-box-match.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;"><span>View Specifications</span></a></div>
+                        </div>
+                        
+                        <div class="details-content" id="details-3">
+                            <h3 class="details-title">Match Books</h3>
+                            <p class="details-desc">Slim, customizable match booklets containing wood splints. Fully printable cover flaps allow high-impact promotional branding for luxury hotels, restaurants, and lounges.</p>
+                            <div class="details-specs">
+                                <div class="details-spec-item">STREET LEAF <strong>12 / 20 Sticks Options</strong></div>
+                                <div class="details-spec-item">BOOKLET SIZE <strong>50 x 55 x 5 mm</strong></div>
+                                <div class="details-spec-item">MIN ORDER <strong>10,000 booklets</strong></div>
+                            </div>
+                            <div style="margin-top: 15px;"><a href="book-match.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;"><span>View Specifications</span></a></div>
+                        </div>
+
+                        <div class="details-content" id="details-4">
+                            <h3 class="details-title">Cigar Match Boxes</h3>
+                            <p class="details-desc">Luxurious wooden slide-out boxes containing premium slow-burning matches. Tailored for cigar lounges and tobacco retailers, offering zero residual chemical aftertaste.</p>
+                            <div class="details-specs">
+                                <div class="details-spec-item">SPLINT LENGTHS <strong>96mm / 150mm</strong></div>
+                                <div class="details-spec-item">BOX DESIGNS <strong>Sliding / Veneer finished</strong></div>
+                                <div class="details-spec-item">EMBERS <strong>Decisive afterglow control</strong></div>
+                            </div>
+                            <div style="margin-top: 15px;"><a href="cigar-match.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;"><span>View Specifications</span></a></div>
+                        </div>
+
+                        <div class="details-content" id="details-5">
+                            <h3 class="details-title">Special Shape Match Boxes</h3>
+                            <p class="details-desc">Unique geometric matchboxes (circular, triangular, hexagonal, etc.) styled to make a striking decorative statement for branding, gifts, and hospitality settings.</p>
+                            <div class="details-specs">
+                                <div class="details-spec-item">PRODUCT CODES <strong>SS-2 / SS-3</strong></div>
+                                <div class="details-spec-item">SHAPES <strong>Circular / Custom Rectangular</strong></div>
+                                <div class="details-spec-item">PRINT FINISH <strong>U.V. Gloss / Embossing</strong></div>
+                            </div>
+                            <div style="margin-top: 15px;"><a href="special-shape-match-boxes.html" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;"><span>View Specifications</span></a></div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Swiper Carousel Nav Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" id="carousel-prev" aria-label="Previous Matchbox">
+                            <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                        </button>
+                        <button class="carousel-btn" id="carousel-next" aria-label="Next Matchbox">
+                            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Why Choose Us -->
+        <section class="features" id="why-choose-us">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Why Choose Us</span>
+                    <h2 class="section-title">The Bell Match <span>Difference</span></h2>
+                </div>
+                
+                <div class="features-grid why-choose-grid">
+                    <!-- Card 1 (Roman I) -->
+                    <div class="feature-card why-choose-card">
+                        <div class="matchstick-number-container">
+                            <div class="matchstick-roman-numeral roman-i">
+                                <div class="num-stick vertical-stick"></div>
+                            </div>
+                        </div>
+                        <h3>Global Presence</h3>
+                        <p>Preferred partner for top brands in over 25 countries across geographies.</p>
+                    </div>
+                    
+                    <!-- Card 2 (Roman II) -->
+                    <div class="feature-card why-choose-card">
+                        <div class="matchstick-number-container">
+                            <div class="matchstick-roman-numeral roman-ii">
+                                <div class="num-stick vertical-stick"></div>
+                                <div class="num-stick vertical-stick"></div>
+                            </div>
+                        </div>
+                        <h3>Certified Safety</h3>
+                        <p>Matches are manufactured strictly as per the EN 1783 Safety Standard.</p>
+                    </div>
+                    
+                    <!-- Card 3 (Roman III) -->
+                    <div class="feature-card why-choose-card">
+                        <div class="matchstick-number-container">
+                            <div class="matchstick-roman-numeral roman-iii">
+                                <div class="num-stick vertical-stick"></div>
+                                <div class="num-stick vertical-stick"></div>
+                                <div class="num-stick vertical-stick"></div>
+                            </div>
+                        </div>
+                        <h3>Wide Selection</h3>
+                        <p>Broad selection range right from chemical head colors to matchstick length.</p>
+                    </div>
+                    
+                    <!-- Card 4 (Roman IV) -->
+                    <div class="feature-card why-choose-card">
+                        <div class="matchstick-number-container">
+                            <div class="matchstick-roman-numeral roman-iv">
+                                <div class="num-stick vertical-stick"></div>
+                                <div class="num-stick v-left-stick"></div>
+                                <div class="num-stick v-right-stick"></div>
+                            </div>
+                        </div>
+                        <h3>High Personalization</h3>
+                        <p>Unmatched personalization possibilities for custom corporate branding and packages.</p>
+                    </div>
+                    
+                    <!-- Card 5 (Roman V) -->
+                    <div class="feature-card why-choose-card">
+                        <div class="matchstick-number-container">
+                            <div class="matchstick-roman-numeral roman-v">
+                                <div class="num-stick v-left-stick"></div>
+                                <div class="num-stick v-right-stick"></div>
+                            </div>
+                        </div>
+                        <h3>World-Class Facility</h3>
+                        <p>World-class manufacturing plant and compliance with all relevant industry codes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Factory Statistics (Animate on Scroll) -->
+        <section class="stats" id="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-legacy" data-target="28">0</div>
+                        <div class="stat-label">Years of Legacy</div>
+                        <div class="stat-desc">Established in 1997, building decades of trusted relationship and expertise.</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-countries" data-target="25">0</div>
+                        <div class="stat-label">Export Destinations</div>
+                        <div class="stat-desc">Preferred partner shipping safety matches across Europe, Middle East, USA, and globally.</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-size" data-target="5">0</div>
+                        <div class="stat-label">Acres Factory Size</div>
+                        <div class="stat-desc">Industrial layout built for scaling production volumes and future expansions.</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-area" data-target="120">0</div>
+                        <div class="stat-label">K Sq Ft Built-up Area</div>
+                        <div class="stat-desc">Integrated raw materials stockyards, manufacturing floor, and packaging hub.</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Global Export Presence (Interactive Map) -->
+        <section class="export" id="export">
+            <div class="container">
+                <div class="export-grid">
+                    <div class="export-content">
+                        <span class="subtitle">Global Operations</span>
+                        <h3 class="section-title" style="text-align: left; margin-bottom: 25px;">Exporting <span>Reliability.</span></h3>
+                        <p>Our strategic logistics partnerships enable container shipping from major seaports to custom warehouses internationally. With pre-approved custom clearances, we guarantee timely arrivals of shipping containers across all key trade zones.</p>
+                        
+                        <div class="export-regions">
+                            <div class="region-item">
+                                <span class="region-name">North America & US</span>
+                            </div>
+                            <div class="region-item">
+                                <span class="region-name">Europe & UK</span>
+                            </div>
+                            <div class="region-item">
+                                <span class="region-name">Middle East & APAC</span>
+                            </div>
+                            <div class="region-item">
+                                <span class="region-name">African Trade Zones</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="export-map-container">
+                        <!-- Premium Clean Minimalist Map SVG -->
+                        <svg class="world-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Simplified schematic continents -->
+                            <path fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5" d="M150,150 L220,130 L250,180 L280,190 L240,260 L210,250 L180,300 L120,280 L100,200 Z M380,420 L400,380 L350,340 L310,320 L270,300 L250,330 L280,390 L320,440 L360,450 Z M450,120 L550,100 L620,130 L640,200 L580,250 L520,280 L440,220 L410,160 Z M520,380 L620,380 L660,420 L600,480 L520,460 L500,410 Z M750,420 L840,430 L860,500 L800,520 L730,480 Z"/>
+                            
+                            <!-- Glowing lines linking India hub to global points (GSAP animated) -->
+                            <g stroke="var(--color-red)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="6,4">
+                                <!-- India (630, 360) -> Europe (480, 240) -->
+                                <path id="route-europe" d="M630,360 Q550,280 480,240" />
+                                <!-- India -> USA (220, 250) -->
+                                <path id="route-usa" d="M630,360 Q420,250 220,250" />
+                                <!-- India -> Africa (500, 390) -->
+                                <path id="route-africa" d="M630,360 Q560,370 500,390" />
+                                <!-- India -> Latam (300, 430) -->
+                                <path id="route-latam" d="M630,360 Q460,400 300,430" />
+                                <!-- India -> Australia (820, 470) -->
+                                <path id="route-australia" d="M630,360 Q720,420 820,470" />
+                            </g>
+                        </svg>
+                        
+                        <!-- Pulse Overlay Markers -->
+                        <div class="map-pulse pulse-india" title="Bell Match Hub (India)"></div>
+                        <div class="map-pulse pulse-europe" title="Europe Depot"></div>
+                        <div class="map-pulse pulse-usa" title="USA Logistics Center"></div>
+                        <div class="map-pulse pulse-africa" title="Africa Terminal"></div>
+                        <div class="map-pulse pulse-latam" title="Latin America Terminal"></div>
+                        <div class="map-pulse pulse-australia" title="Australia Depot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: Presentation & Photo Gallery -->
+        <section class="gallery-section" id="gallery">
+            <div class="container">
+                <div class="gallery-grid-split">
+                    <!-- Left Column: Video presentation promo -->
+                    <div class="video-promo-card">
+                        <div class="video-promo-overlay"></div>
+                        <div class="video-promo-content">
+                            <div class="play-button-outer">
+                                <button class="play-btn-pulse" aria-label="Watch Corporate Video">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                            </div>
+                            <h3>Watch Our <span>Corporate Presentation</span></h3>
+                            <p>We believe strongly that we can and must do things differently. Our aim is to bring you news, perspectives, and industrial excellence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Gallery previews -->
+                    <div class="gallery-preview-wrap">
+                        <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+                            <span class="subtitle">Our Gallery</span>
+                            <h2 class="section-title" style="text-align: left;">Industrial <span>Process</span></h2>
+                            <p style="margin-top: 15px;">Below is a gallery showcasing our manufacturing processes, facilities, and state-of-the-art machinery.</p>
+                        </div>
+                        <div class="gallery-mini-grid">
+                            <!-- Image 1 -->
+                            <div class="gallery-item-placeholder">
+                                <div class="gallery-overlay">
+                                    <span>Log Yard</span>
+                                </div>
+                            </div>
+                            <!-- Image 2 -->
+                            <div class="gallery-item-placeholder">
+                                <div class="gallery-overlay">
+                                    <span>Splint Veneers</span>
+                                </div>
+                            </div>
+                            <!-- Image 3 -->
+                            <div class="gallery-item-placeholder">
+                                <div class="gallery-overlay">
+                                    <span>Chemical Coating</span>
+                                </div>
+                            </div>
+                            <!-- Image 4 -->
+                            <div class="gallery-item-placeholder">
+                                <div class="gallery-overlay">
+                                    <span>Sorting Line</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-action-btn" style="margin-top: 30px;">
+                            <a href="gallery.html" class="btn btn-secondary">View More Work</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: Contact Form -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <span class="subtitle">Partnerships & Orders</span>
+                        <h3>Request an <span>Enquiry.</span></h3>
+                        <p>Let's collaborate on your bulk matchbox orders or custom branded matches. Contact our factory operations department today.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <!-- Matchbox Envelope Icon -->
+                                    <svg viewBox="0 0 50 50" style="width: 40px !important; height: 40px !important; overflow: visible;">
+                                        <!-- Mini Drawer sliding out -->
+                                        <rect x="30" y="14" width="12" height="22" rx="2" fill="#ebdcb9" stroke="#9c8e76" stroke-width="1.2" />
+                                        <!-- Matchstick inside drawer -->
+                                        <line x1="36" y1="18" x2="36" y2="32" stroke="#ebdcb9" stroke-width="2.5" stroke-linecap="round" />
+                                        <circle cx="36" cy="18" r="2.2" fill="var(--color-red)" />
+                                        <!-- Sleeve -->
+                                        <rect x="5" y="10" width="28" height="30" rx="3" fill="#020e27" stroke="var(--color-red)" stroke-width="1.8" />
+                                        <!-- Striker strip -->
+                                        <line x1="7" y1="10" x2="7" y2="40" stroke="#3a2217" stroke-width="2.5" stroke-dasharray="2 1" />
+                                        <!-- Centered Envelope icon inside sleeve -->
+                                        <path d="M12 16a1 1 0 0 1 1-1h12c.5 0 1 .4 1 1v8a1 1 0 0 1-1 1H13c-.5 0-1-.4-1-1v-8zm1.5 1v1l4.5 3 4.5-3v-1l-4.5 3-4.5-3z" fill="#ffffff"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Corporate Email</h4>
+                                    <p><a href="mailto:sales@bellmatch.com">sales@bellmatch.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <!-- Matchbox Phone Icon -->
+                                    <svg viewBox="0 0 50 50" style="width: 40px !important; height: 40px !important; overflow: visible;">
+                                        <!-- Mini Drawer sliding out -->
+                                        <rect x="30" y="14" width="12" height="22" rx="2" fill="#ebdcb9" stroke="#9c8e76" stroke-width="1.2" />
+                                        <!-- Matchstick inside drawer -->
+                                        <line x1="36" y1="18" x2="36" y2="32" stroke="#ebdcb9" stroke-width="2.5" stroke-linecap="round" />
+                                        <circle cx="36" cy="18" r="2.2" fill="var(--color-red)" />
+                                        <!-- Sleeve -->
+                                        <rect x="5" y="10" width="28" height="30" rx="3" fill="#020e27" stroke="var(--color-red)" stroke-width="1.8" />
+                                        <!-- Striker strip -->
+                                        <line x1="7" y1="10" x2="7" y2="40" stroke="#3a2217" stroke-width="2.5" stroke-dasharray="2 1" />
+                                        <!-- Centered Phone handset icon inside sleeve -->
+                                        <path d="M15 17.5a1.5 1.5 0 0 1 1.5-1.5H18c.3 0 .6.2.7.5l.7 1.8c.1.3 0 .6-.2.8l-1 1c.5 1.2 1.3 2 2.5 2.5l1-1c.2-.2.5-.3.8-.2l1.8.7c.3.1.5.4.5.7V24a1.5 1.5 0 0 1-1.5 1.5h-.8c-3.7 0-6.7-3-6.7-6.7v-.8z" fill="#ffffff"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Factory Operations</h4>
+                                    <p>+91 78459 65010 (10 AM - 5 PM)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <!-- Matchbox Map Pin Icon -->
+                                    <svg viewBox="0 0 50 50" style="width: 40px !important; height: 40px !important; overflow: visible;">
+                                        <!-- Mini Drawer sliding out -->
+                                        <rect x="30" y="14" width="12" height="22" rx="2" fill="#ebdcb9" stroke="#9c8e76" stroke-width="1.2" />
+                                        <!-- Matchstick inside drawer -->
+                                        <line x1="36" y1="18" x2="36" y2="32" stroke="#ebdcb9" stroke-width="2.5" stroke-linecap="round" />
+                                        <circle cx="36" cy="18" r="2.2" fill="var(--color-red)" />
+                                        <!-- Sleeve -->
+                                        <rect x="5" y="10" width="28" height="30" rx="3" fill="#020e27" stroke="var(--color-red)" stroke-width="1.8" />
+                                        <!-- Striker strip -->
+                                        <line x1="7" y1="10" x2="7" y2="40" stroke="#3a2217" stroke-width="2.5" stroke-dasharray="2 1" />
+                                        <!-- Centered Pin icon inside sleeve -->
+                                        <path d="M19 14a4 4 0 0 0-4 4c0 2.8 4 7.6 4 7.6s4-4.8 4-7.6a4 4 0 0 0-4-4zm0 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#ffffff"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Factory Address</h4>
+                                    <p>2/180, T. Managaseri, Malli (via) Srivilliputhur, Virudunagar (Dist), Pin: 626141 India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-wrap">
+                        <form id="export-contact-form" action="#" method="POST" onsubmit="return false;">
+                            <div class="form-group">
+                                <input type="text" id="form-name" class="form-input" placeholder=" " required autocomplete="name">
+                                <label for="form-name" class="form-label">Full Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="form-email" class="form-input" placeholder=" " required autocomplete="email">
+                                <label for="form-email" class="form-label">Work Email</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="form-phone" class="form-input" placeholder=" " required autocomplete="tel">
+                                <label for="form-phone" class="form-label">Phone Number</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="form-message" class="form-input" placeholder=" " required></textarea>
+                                <label for="form-message" class="form-label">Tell us about your requirements...</label>
+                            </div>
+                            
+                            <div class="magnetic-wrap">
+                                <button type="submit" class="btn submit-btn" id="form-submit-btn">
+                                    Submit Enquiry
+                                    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                                </button>
+                            </div>
+                            
+                            <div class="form-success-msg" id="form-success-msg">
+                                Thank you! Your enquiry has been submitted. Our team will get back to you shortly.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SECTION 10: Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-info">
+                    <h4>
+                        <span class="logo-bell" style="color: var(--color-red);">BELL</span><span class="logo-match" style="color: #fff;">MATCH</span>
+                    </h4>
+                    <p>The Bell Match Company is an admired organization of professionals renowned for exceptional customer service and an impeccable safety and compliance record.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.7 0-1.37-.2-1.95-.54v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.52 8.52 0 0 1-5.31 1.83c-.35 0-.69-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.5 20.33 8.89c0-.18 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="pocket-box-match.html">Pocket Box Matches</a></li>
+                        <li><a href="kitchen-box-match.html">Kitchen Box Matches</a></li>
+                        <li><a href="barbeque-box-match.html">Barbeque Box Matches</a></li>
+                        <li><a href="book-match.html">Match Books</a></li>
+                        <li><a href="cigar-match.html">Cigar Match Boxes</a></li>
+                        <li><a href="special-shape-match-boxes.html">Special Shape Matches</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about-us.html">About Our Profile</a></li>
+                        <li><a href="infrastructure.html">Factory Infrastructure</a></li>
+                        <li><a href="about-us.html#certifications">Quality Standards</a></li>
+                        <li><a href="gallery.html">Industrial Gallery</a></li>
+                        <li><a href="contact-us.html">Contact & Enquiry</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to receive industrial updates, batch releases, and company notifications.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="return false;">
+                        <input type="email" class="newsletter-input" placeholder="Your Email" required>
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #fff;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        </button>
+                    </form>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 bellmatch - All Rights Reserved. &nbsp;|&nbsp; Web Design: NIKITHA</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CDN Libraries (MilesWeb Shared Hosting Compatible) -->
+    <!-- GSAP for core animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- ScrollTrigger for scroll-based animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    
+    <!-- Custom Application JS -->
+    <script src="layout/layout.js"></script>`r`n    <script src="app.js"></script>
+</body>
+</html>

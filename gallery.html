@@ -1,0 +1,845 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | The Bell Match Company</title>
+    <meta name="description" content="Explore The Bell Match Company's photo gallery � factory processes, production lines, manufacturing equipment, and finished product imagery from our Sivakasi facility.">
+    <meta name="keywords" content="Bell Match gallery, Sivakasi factory photos, match manufacturing process, production gallery">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =============================================
+           GALLERY PAGE STYLES
+        ============================================= */
+        .page-banner {
+            background: var(--color-bg-dark);
+            padding: 200px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(218, 37, 29, 0.12) 0%, transparent 65%);
+        }
+        .page-banner .container { position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+        .breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+        .breadcrumb a:hover { color: var(--color-red); }
+        .breadcrumb span { color: var(--color-red); }
+        .breadcrumb-sep { color: rgba(255,255,255,0.3); }
+        .page-banner h1 { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px; }
+        .page-banner h1 span { color: var(--color-red); }
+        .page-banner p { font-size: 1.1rem; color: rgba(255,255,255,0.65); max-width: 600px; line-height: 1.7; }
+
+
+
+        /* Video Showcase */
+        .video-showcase {
+            padding: 70px 0 80px;
+            background: #fff;
+        }
+        .video-section-header {
+            margin-bottom: 40px;
+        }
+        .video-section-header .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 12px;
+        }
+        .video-section-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: var(--color-black);
+        }
+        .video-section-header h2 span { color: var(--color-red); }
+        .video-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+        .video-main-card {
+            background: var(--color-bg-dark);
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+        .video-main-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(218,37,29,0.2) 0%, transparent 70%);
+        }
+        .video-play-wrap {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        .video-play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--color-red);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 0 0 0 rgba(218,37,29,0.5);
+            animation: pulse-ring 2s infinite;
+            transition: transform 0.3s;
+        }
+        .video-play-btn:hover { transform: scale(1.1); }
+        .video-play-btn svg { width: 32px; height: 32px; fill: #fff; margin-left: 4px; }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(218,37,29,0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(218,37,29,0); }
+            100% { box-shadow: 0 0 0 0 rgba(218,37,29,0); }
+        }
+        .video-play-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .video-label-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .video-side-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .video-side-item {
+            background: #f8f9fb;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            padding: 14px;
+            border: 1px solid rgba(0,0,0,0.06);
+            cursor: pointer;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .video-side-item:hover {
+            background: rgba(218,37,29,0.06);
+            border-color: rgba(218,37,29,0.2);
+        }
+        .video-side-thumb {
+            width: 70px;
+            height: 50px;
+            border-radius: 8px;
+            background: var(--color-bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .video-side-thumb svg { width: 20px; height: 20px; fill: rgba(255,255,255,0.4); }
+        .video-side-info h4 {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 4px;
+        }
+        .video-side-info p {
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+        }
+
+        /* Photo Masonry Gallery */
+        .photo-gallery {
+            padding: 80px 0;
+            background: #f8f9fb;
+        }
+        .photo-gallery-header {
+            margin-bottom: 40px;
+        }
+        .photo-gallery-header .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 12px;
+        }
+        .photo-gallery-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: var(--color-black);
+        }
+        .photo-gallery-header h2 span { color: var(--color-red); }
+
+        /* Masonry-style Grid */
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 180px;
+            gap: 14px;
+        }
+        .gallery-cell {
+            background: #e0e4ed;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .gallery-cell:hover {
+            transform: scale(1.03);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+        .gallery-cell.tall { grid-row: span 2; }
+        .gallery-cell.wide { grid-column: span 2; }
+        .gallery-cell-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            color: rgba(2,14,39,0.25);
+        }
+        .gallery-cell-content svg { width: 28px; height: 28px; fill: currentColor; }
+        .gallery-cell-content span { font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        .gallery-cell-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(2,14,39,0.75) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.35s;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+        }
+        .gallery-cell:hover .gallery-cell-overlay { opacity: 1; }
+        .gallery-cell-label {
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .gallery-cell-zoom {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+        .gallery-cell:hover .gallery-cell-zoom { opacity: 1; }
+        .gallery-cell-zoom svg { width: 16px; height: 16px; fill: #fff; }
+
+        /* Gallery Category Labels */
+        .gallery-category-section { margin-bottom: 60px; }
+        .gallery-category-section:last-child { margin-bottom: 0; }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 9000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-inner {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+        }
+        .lightbox-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            color: rgba(2,14,39,0.3);
+        }
+        .lightbox-img svg { width: 50px; height: 50px; fill: currentColor; }
+        .lightbox-caption {
+            padding: 20px 24px;
+        }
+        .lightbox-caption h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-black);
+        }
+        .lightbox-caption p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-top: 4px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-close svg { width: 18px; height: 18px; fill: #fff; }
+
+        /* CSR / Environment Section */
+        .csr-section {
+            padding: 90px 0;
+            background: var(--color-bg-dark);
+            text-align: center;
+        }
+        .csr-section .subtitle {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 14px;
+        }
+        .csr-section h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .csr-section h2 span { color: var(--color-red); }
+        .csr-section p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto 44px;
+            line-height: 1.7;
+        }
+        .csr-stats {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .csr-stat-item {
+            text-align: center;
+        }
+        .csr-stat-num {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--color-red);
+            line-height: 1;
+        }
+        .csr-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .reveal-up { opacity: 0; transform: translateY(30px); }
+
+        @media (max-width: 1024px) {
+            .masonry-grid { grid-template-columns: repeat(3, 1fr); }
+            .video-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .masonry-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-cell.wide { grid-column: span 1; }
+            .csr-stats { gap: 30px; }
+        }
+        @media (max-width: 480px) {
+            .masonry-grid { grid-template-columns: 1fr; }
+            .gallery-cell.tall { grid-row: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Cinematic Preloader (Mandatory) -->
+    <div id="preloader" role="dialog" aria-modal="true" aria-label="Loading Website">
+        <canvas class="preloader-canvas" id="preloader-canvas"></canvas>
+        <div class="preloader-content">
+            <div class="preloader-stick-container">
+                <div class="preloader-striker"></div>
+                <div class="preloader-matchstick" id="preloader-stick"></div>
+            </div>
+            <h1 class="preloader-logo" id="preloader-logo">BELL <span>MATCH CO.</span></h1>
+            <div class="preloader-subtitle" id="preloader-subtitle">Loading Gallery...</div>
+            <div class="preloader-progress-wrap">
+                <div class="preloader-progress-bar" id="preloader-progress"></div>
+                <div class="progress-flame" id="progress-flame">
+                    <!-- Dynamic Spark / Fire Glow -->
+                </div>
+            </div>
+            <div class="preloader-percentage" id="preloader-percent">0%</div>
+        </div>
+    </div>
+
+    <canvas id="spark-canvas"></canvas>
+
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container top-contact-grid">
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>+91 78459 65010 (10 AM - 5 PM)</span>
+            </div>
+            <div class="contact-info-item">
+                <svg viewBox="0 0 24 24" class="contact-icon"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:sales@bellmatch.com">sales@bellmatch.com</a>
+            </div>
+            <div class="social-quick-links">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html#hero" class="logo" aria-label="The Bell Match Company Home">
+            <span class="logo-bell">BELL</span><span class="logo-match">MATCH</span>
+        </a>
+        <nav class="nav-links" id="nav-links">
+            <a href="index.html#hero">Home</a>
+            <div class="nav-dropdown-trigger">
+                <a href="about-us.html" class="dropdown-toggle">About Us <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="about-us.html">Profile</a>
+                    <a href="infrastructure.html">Infrastructure</a>
+                    <a href="certificates.html">Certificates</a>
+                    <a href="policies.html">Policies</a>
+                </div>
+            </div>
+            <div class="nav-dropdown-trigger">
+                <a href="products.html" class="dropdown-toggle">Products <span class="arrow-down"></span></a>
+                <div class="nav-dropdown-menu">
+                    <a href="pocket-box-match.html">Pocket Box Matches</a>
+                    <a href="kitchen-box-match.html">Kitchen Box Matches</a>
+                    <a href="barbeque-box-match.html">Barbeque Box Matches</a>
+                    <a href="book-match.html">Match Books</a>
+                    <a href="cigar-match.html">Cigar Match Boxes</a>
+                    <a href="special-shape-match-boxes.html">Special Shape Match Boxes</a>
+                </div>
+            </div>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact-us.html" class="nav-cta">Contact Us</a>
+        </nav>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- Page Banner -->
+        <section class="page-banner">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-sep">�</span>
+                    <span>Gallery</span>
+                </div>
+                <h1>Photo <span>Gallery</span></h1>
+                <p>A visual journey through our manufacturing excellence � from the log yard to the finished product, every step showcases our commitment to quality.</p>
+            </div>
+        </section>
+
+
+
+        <!-- Video Showcase -->
+        <section class="video-showcase">
+            <div class="container">
+                <div class="video-section-header reveal-up">
+                    <span class="subtitle">Corporate Presentation</span>
+                    <h2>Watch Our <span>Story</span></h2>
+                </div>
+                <div class="video-grid">
+                    <div class="video-main-card reveal-up">
+                        <div class="video-play-wrap">
+                            <button class="video-play-btn" aria-label="Play Corporate Video">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </button>
+                            <div class="video-play-label">Watch Corporate Presentation</div>
+                        </div>
+                        <div class="video-label-tag">The Bell Match Company � Corporate Film</div>
+                    </div>
+                    <div class="video-side-list reveal-up">
+                        <div class="video-side-item">
+                            <div class="video-side-thumb">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="video-side-info">
+                                <h4>Factory Tour � Sivakasi</h4>
+                                <p>3:45 min � Manufacturing facility walkthrough</p>
+                            </div>
+                        </div>
+                        <div class="video-side-item">
+                            <div class="video-side-thumb">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="video-side-info">
+                                <h4>Production Process Overview</h4>
+                                <p>5:12 min � From log to matchbox</p>
+                            </div>
+                        </div>
+                        <div class="video-side-item">
+                            <div class="video-side-thumb">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="video-side-info">
+                                <h4>Quality Control Standards</h4>
+                                <p>2:30 min � EN 1783 testing procedures</p>
+                            </div>
+                        </div>
+                        <div class="video-side-item">
+                            <div class="video-side-thumb">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <div class="video-side-info">
+                                <h4>Export Operations</h4>
+                                <p>2:55 min � Global logistics overview</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery � Factory & Plant -->
+        <section class="photo-gallery">
+            <div class="container">
+
+                <!-- Factory Category -->
+                <div class="gallery-category-section reveal-up">
+                    <div class="photo-gallery-header">
+                        <span class="subtitle">Category 01</span>
+                        <h2>Factory & <span>Plant</span></h2>
+                    </div>
+                    <div class="masonry-grid">
+                        <div class="gallery-cell tall">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay">
+                                <span class="gallery-cell-label">Aerial Factory View</span>
+                            </div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Main Hall Entrance</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Log Storage Yard</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell wide">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">5-Acre Factory Overview</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Production Process Category -->
+                <div class="gallery-category-section reveal-up">
+                    <div class="photo-gallery-header">
+                        <span class="subtitle">Category 02</span>
+                        <h2>Production <span>Process</span></h2>
+                    </div>
+                    <div class="masonry-grid">
+                        <div class="gallery-cell wide">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Veneer Cutting � Arenco Machine</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell tall">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Chemical Dipping Line</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Splint Sorting</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Packaging Hub</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">QC Testing Lab</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Category -->
+                <div class="gallery-category-section reveal-up">
+                    <div class="photo-gallery-header">
+                        <span class="subtitle">Category 03</span>
+                        <h2>Our <span>Products</span></h2>
+                    </div>
+                    <div class="masonry-grid">
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Pocket Box Matches</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Kitchen Matches</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Cigar Matches</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                        <div class="gallery-cell">
+                            <div class="gallery-cell-content">
+                                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <span>Image Slot</span>
+                            </div>
+                            <div class="gallery-cell-overlay"><span class="gallery-cell-label">Match Books</span></div>
+                            <div class="gallery-cell-zoom"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CSR / Environment Section -->
+        <section class="csr-section reveal-up">
+            <div class="container">
+                <span class="subtitle">Our Commitment</span>
+                <h2>Responsible <span>Manufacturing</span></h2>
+                <p>We believe doing business right means doing right by the environment, our workers, and the communities we serve. Every number here reflects our commitment to sustainable and ethical manufacturing.</p>
+                <div class="csr-stats">
+                    <div class="csr-stat-item">
+                        <div class="csr-stat-num">100%</div>
+                        <div class="csr-stat-label">FSC-certified timber sourcing</div>
+                    </div>
+                    <div class="csr-stat-item">
+                        <div class="csr-stat-num">0</div>
+                        <div class="csr-stat-label">Phosphorus (P) compounds used</div>
+                    </div>
+                    <div class="csr-stat-item">
+                        <div class="csr-stat-num">28+</div>
+                        <div class="csr-stat-label">Years of safe operations</div>
+                    </div>
+                    <div class="csr-stat-item">
+                        <div class="csr-stat-num">EN</div>
+                        <div class="csr-stat-label">1783 safety certified</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-inner">
+            <div class="lightbox-img">
+                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2z"/></svg>
+            </div>
+            <div class="lightbox-caption">
+                <h4 id="lightbox-title">Gallery Image</h4>
+                <p id="lightbox-desc">The Bell Match Company � Manufacturing Excellence</p>
+            </div>
+            <button class="lightbox-close" id="lightbox-close">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h4><span class="logo-bell" style="color: var(--color-red);">BELL</span><span class="logo-match" style="color: #fff;">MATCH</span></h4>
+                    <p>The Bell Match Company is an admired organization of professionals renowned for exceptional customer service and an impeccable safety and compliance record.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+                        <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7c4.78-.75 8.44-4.9 8.44-9.9 0-5.53-4.5-10.02-10-10.02z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="pocket-box-match.html">Pocket Box Matches</a></li>
+                        <li><a href="kitchen-box-match.html">Kitchen Box Matches</a></li>
+                        <li><a href="barbeque-box-match.html">Barbeque Box Matches</a></li>
+                        <li><a href="book-match.html">Match Books</a></li>
+                        <li><a href="cigar-match.html">Cigar Match Boxes</a></li>
+                        <li><a href="special-shape-match-boxes.html">Special Shape Matches</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about-us.html">About Our Profile</a></li>
+                        <li><a href="infrastructure.html">Factory Infrastructure</a></li>
+                        <li><a href="certificates.html">Certifications</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                        <li><a href="gallery.html">Industrial Gallery</a></li>
+                        <li><a href="contact-us.html">Contact & Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to receive industrial updates, batch releases, and company notifications.</p>
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="return false;">
+                        <input type="email" class="newsletter-input" placeholder="Your Email" required>
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: #fff;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 bellmatch - All Rights Reserved. &nbsp;|&nbsp; Web Design: NIKITHA</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <script src="layout/layout.js"></script>`r`n    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lightbox
+            const lightbox = document.getElementById('lightbox');
+            const lightboxClose = document.getElementById('lightbox-close');
+            document.querySelectorAll('.gallery-cell').forEach(cell => {
+                cell.addEventListener('click', () => {
+                    const label = cell.querySelector('.gallery-cell-label');
+                    if (label) {
+                        document.getElementById('lightbox-title').textContent = label.textContent;
+                    }
+                    lightbox.classList.add('active');
+                });
+            });
+            lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+
+
+
+            // Scroll animations
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.reveal-up').forEach((el, i) => {
+                    gsap.fromTo(el, { opacity: 0, y: 40 }, {
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                        delay: (i % 3) * 0.08,
+                        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+                    });
+                });
+
+                // Stagger gallery cells
+                gsap.utils.toArray('.gallery-cell').forEach((cell, i) => {
+                    gsap.fromTo(cell, { opacity: 0, scale: 0.95 }, {
+                        opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out',
+                        delay: (i % 4) * 0.08,
+                        scrollTrigger: { trigger: cell, start: 'top 92%', toggleActions: 'play none none none' }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
