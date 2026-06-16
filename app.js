@@ -1039,39 +1039,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Statistics counter
-        const statsNumbers = document.querySelectorAll('.stat-number');
-        statsNumbers.forEach((statNum) => {
-            const targetVal = parseInt(statNum.getAttribute('data-target'), 10);
-            if (!isNaN(targetVal)) {
-                let countObject = { val: 0 };
-                gsap.to(countObject, {
-                    val: targetVal,
-                    duration: 2.2,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: statNum,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
-                    },
-                    onUpdate: () => {
-                        const formattedNum = Math.floor(countObject.val);
-                        if (statNum.id === 'stat-legacy') {
-                            statNum.textContent = formattedNum + '+ Yrs';
-                        } else if (statNum.id === 'stat-countries') {
-                            statNum.textContent = formattedNum + '+';
-                        } else if (statNum.id === 'stat-size') {
-                            statNum.textContent = formattedNum + ' Acr';
-                        } else if (statNum.id === 'stat-area') {
-                            statNum.textContent = formattedNum + 'K+';
-                        } else {
-                            statNum.textContent = formattedNum;
-                        }
-                    }
-                });
-            }
-        });
-
         // Map glowing routes
         const mapRoutes = ['#route-europe', '#route-usa', '#route-africa', '#route-latam', '#route-australia'];
         mapRoutes.forEach(routeId => {
