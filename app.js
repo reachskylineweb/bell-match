@@ -1181,4 +1181,104 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --------------------------------------------------
+    // 12. Luxury Signature Collection Carousel (About Page)
+    // --------------------------------------------------
+    const luxuryTrack = document.getElementById('luxury-carousel-track');
+    const luxurySlides = Array.from(document.querySelectorAll('.luxury-carousel-slide'));
+    const luxuryDots = Array.from(document.querySelectorAll('.luxury-carousel-dot'));
+    const luxuryBtnNext = document.querySelector('.luxury-carousel-controls .btn-next');
+    const luxuryBtnPrev = document.querySelector('.luxury-carousel-controls .btn-prev');
+    
+    if (luxuryTrack && luxurySlides.length > 0) {
+        let currentIndex = 0;
+
+        function updateLuxuryCarousel() {
+            luxurySlides.forEach((slide, idx) => {
+                // Remove all relative 3D placement classes
+                slide.classList.remove('active', 'prev-1', 'next-1', 'prev-2', 'next-2');
+                
+                if (idx === currentIndex) {
+                    slide.classList.add('active');
+                } else if (idx === currentIndex - 1) {
+                    slide.classList.add('prev-1');
+                } else if (idx === currentIndex + 1) {
+                    slide.classList.add('next-1');
+                } else if (idx === currentIndex - 2) {
+                    slide.classList.add('prev-2');
+                } else if (idx === currentIndex + 2) {
+                    slide.classList.add('next-2');
+                } else if (idx < currentIndex) {
+                    slide.style.transform = 'scale(0.5) translate3d(-800px, 0, -300px)';
+                    slide.style.opacity = '0';
+                } else if (idx > currentIndex) {
+                    slide.style.transform = 'scale(0.5) translate3d(800px, 0, -300px)';
+                    slide.style.opacity = '0';
+                }
+            });
+
+            // Update dot indicators
+            luxuryDots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        if (luxuryBtnNext) {
+            luxuryBtnNext.addEventListener('click', () => {
+                if (currentIndex < luxurySlides.length - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Loop back to start
+                }
+                updateLuxuryCarousel();
+            });
+        }
+
+        if (luxuryBtnPrev) {
+            luxuryBtnPrev.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = luxurySlides.length - 1; // Loop to end
+                }
+                updateLuxuryCarousel();
+            });
+        }
+
+        // Dot navigation
+        luxuryDots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                currentIndex = parseInt(e.target.getAttribute('data-index'), 10);
+                updateLuxuryCarousel();
+            });
+        });
+
+        // Touch swipe support
+        let startX = 0;
+        luxuryTrack.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        luxuryTrack.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) { // Swipe threshold
+                if (diffX > 0 && currentIndex < luxurySlides.length - 1) {
+                    currentIndex++;
+                } else if (diffX < 0 && currentIndex > 0) {
+                    currentIndex--;
+                }
+                updateLuxuryCarousel();
+            }
+        }, { passive: true });
+
+        // Initialize layout
+        updateLuxuryCarousel();
+    }
+
 });
